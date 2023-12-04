@@ -3,32 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --primary-foreground: #00000;
+  --background: 0, 0%, 13%;
+  --foreground: 0, 0%, 13%;
+  --primary-foreground: 0, 0%, 13%;
   --primary: 47, 99%, 52%;
-  --primary-foreground: 0, 0%, 95%;
   --radius: 0.5rem;
   --card: 0 0% 100%;
   --card-foreground: 222.2 47.4% 11.2%;
   --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --ring: 215 20.2% 65.1%;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  /*  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}
+} */
