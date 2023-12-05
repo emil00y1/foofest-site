@@ -87,7 +87,7 @@ function Header() {
               >
                 Tickets
               </Link>
-              <Link className="text-2xl" href="#" onClick={toggleDrawer}>
+              <Link className="text-2xl" href="/lineup" onClick={toggleDrawer}>
                 Program
               </Link>
             </div>
