@@ -13,33 +13,32 @@ function Header() {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <header className="flex flex-row justify-between p-6">
-      <Image src="/logo.svg" alt="logo" width="70" height="70"></Image>
+    <header className="flex flex-row justify-between p-4">
+      <Image src="/logo.svg" alt="logo" width="60" height="60"></Image>
       <div className="flex self-center">
         <Hamburger toggled={isOpen} toggle={setIsOpen} />
-        {/*         <button onClick={toggleDrawer}>Show</button>
-         */}{" "}
         <Drawer
           style={{ backgroundColor: "hsl(var(--extra-dark))" }}
           open={isOpen}
           onClose={toggleDrawer}
-          direction="left"
+          direction="right"
         >
           <div className="h-full flex flex-col">
-            <div className="flex m-2">
-              <Image src="/logo.svg" alt="logo" width="48" height="48"></Image>
-
-              {/*             <Hamburger toggled={isOpen} toggle={setIsOpen} />
-               */}
+            <div className="flex m-4 justify-end">
+              <Hamburger toggled={isOpen} toggle={setIsOpen} />
             </div>
             <div className="flex flex-col items-center gap-8 mt-12">
-              <Link className="text-2xl" href="#">
+              <Link className="text-2xl" href="/" onClick={toggleDrawer}>
                 Home
               </Link>
-              <Link className="text-2xl" href="#">
+              <Link
+                className="text-2xl"
+                href="/buy-tickets"
+                onClick={toggleDrawer}
+              >
                 Tickets
               </Link>
-              <Link className="text-2xl" href="#">
+              <Link className="text-2xl" href="#" onClick={toggleDrawer}>
                 Program
               </Link>
             </div>
