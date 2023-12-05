@@ -1,3 +1,5 @@
-export default async function lineup() {
-  return <></>;
+function LineUp() {
+  return <main></main>;
 }
+
+export default LineUp;
