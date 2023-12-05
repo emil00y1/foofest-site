@@ -16,11 +16,11 @@ export default function Home() {
 
       <h2>ABOUT FOOFEST</h2>
       <p>
-        Our week-long 24/7 festival brings together a diverse lineup of artists for an unforgettable experience. Camp under the stars, enjoy top-notch facilities, and immerse yourself in the rhythm of
-        the music. Join us for a down-to-earth celebration at this year’s Foofest.
+        Our week-long 24/7 festival brings together a diverse lineup of artists
+        for an unforgettable experience. Camp under the stars, enjoy top-notch
+        facilities, and immerse yourself in the rhythm of the music. Join us for
+        a down-to-earth celebration at this year’s Foofest.
       </p>
-
-      <Footer />
     </main>
   );
 }
