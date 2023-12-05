@@ -3,13 +3,15 @@ import Divider from "./Divider";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="flex flex-col m-8">
       <Divider />
-      <a href="mailto:contact@foofest.com">contact@foofest.com</a>
+      <a className="p-3 text-center" href="mailto:contact@foofest.com">
+        contact@foofest.com
+      </a>
       <Divider />
-      <div>
-        <p>© FOOFEST</p>
-        <div>
+      <div className="flex justify-between mt-8">
+        <p className="self-end">© FOOFEST</p>
+        <div className="flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"

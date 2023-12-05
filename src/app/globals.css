@@ -26,9 +26,6 @@
   }
 } */
 
-footer {
-  margin: 2rem;
-}
 body * {
   color: hsl(var(--foreground));
 }
