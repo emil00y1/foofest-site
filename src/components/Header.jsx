@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import Hamburger from "hamburger-react";
 import Footer from "./Footer";
 import Link from "next/link";
 
@@ -16,7 +15,36 @@ function Header() {
     <header className="flex flex-row justify-between p-4">
       <Image src="/logo.svg" alt="logo" width="60" height="60"></Image>
       <div className="flex self-center">
-        <Hamburger toggled={isOpen} toggle={setIsOpen} />
+        <svg
+          onClick={toggleDrawer}
+          className="cursor-pointer	"
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="28"
+          viewBox="0 0 34 28"
+          fill="none"
+        >
+          <g filter="url(#filter0_d_93_211)">
+            <path
+              d="M2 2H31"
+              stroke="#C8C8C8"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+            <path
+              d="M2 13H31"
+              stroke="#C8C8C8"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+            <path
+              d="M2 24H31"
+              stroke="#C8C8C8"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
         <Drawer
           style={{ backgroundColor: "hsl(var(--extra-dark))" }}
           open={isOpen}
@@ -24,8 +52,29 @@ function Header() {
           direction="right"
         >
           <div className="h-full flex flex-col">
-            <div className="flex m-4 justify-end">
-              <Hamburger toggled={isOpen} toggle={setIsOpen} />
+            <div className="flex m-6 justify-end">
+              <svg
+                onClick={toggleDrawer}
+                className="cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+              >
+                <path
+                  d="M2.5 26L26.5 2"
+                  stroke="#C8C8C8"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M2 2L26 26"
+                  stroke="#C8C8C8"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
             </div>
             <div className="flex flex-col items-center gap-8 mt-12">
               <Link className="text-2xl" href="/" onClick={toggleDrawer}>
@@ -38,7 +87,7 @@ function Header() {
               >
                 Tickets
               </Link>
-              <Link className="text-2xl" href="#" onClick={toggleDrawer}>
+              <Link className="text-2xl" href="/lineup" onClick={toggleDrawer}>
                 Program
               </Link>
             </div>
