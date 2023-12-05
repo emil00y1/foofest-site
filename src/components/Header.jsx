@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import Hamburger from "hamburger-react";
 import Footer from "./Footer";
 import Link from "next/link";
 
