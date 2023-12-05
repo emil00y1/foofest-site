@@ -3,7 +3,7 @@ import Divider from "./Divider";
 
 function Footer() {
   return (
-    <footer className="flex flex-col m-8">
+    <footer className="flex flex-col m-6">
       <Divider />
       <a className="p-3 text-center" href="mailto:contact@foofest.com">
         contact@foofest.com
