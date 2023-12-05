@@ -1,3 +1,9 @@
+import Headline from "@/components/Headline";
+
 export default async function lineup() {
-  return <></>;
+  return (
+    <>
+      <Headline>LIneup</Headline>
+    </>
+  );
 }
