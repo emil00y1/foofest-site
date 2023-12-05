@@ -31,6 +31,10 @@ body * {
   color: hsl(var(--foreground));
 }
 
+/* nav {
+  background-color: hsl(var(--extra-dark));
+} */
+
 body {
   background-color: hsl(var(--background));
   min-height: 100vh;

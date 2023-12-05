@@ -17,8 +17,8 @@ function Header() {
         <Drawer
           open={isOpen}
           onClose={toggleDrawer}
-          direction="right"
-          className=""
+          direction="left"
+          className="bg-background"
         >
           <div>Hello World</div>
         </Drawer>
