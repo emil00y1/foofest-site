@@ -1,11 +1,13 @@
 import Headline from "@/components/Headline";
+import LineupNav from "@/components/LineupNav";
 
-export default async function lineup() {
+function Lineup() {
   return (
-    <>
-      <Headline>LIneup</Headline>
-    </>
+    <main>
+      <Headline>Lineup</Headline>
+      <LineupNav></LineupNav>
+    </main>
   );
 }
 
-export default LineUp;
+export default Lineup;
