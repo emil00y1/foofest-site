@@ -1,5 +1,6 @@
 import { Roboto_Flex } from "next/font/google";
 import "./globals.css";
+import Header from "../components/Header";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
@@ -11,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <Header></Header>
+        {children}
+      </body>
     </html>
   );
 }
