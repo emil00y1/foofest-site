@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Input type="email" placeholder="Email" />
         <Button type="submit">Subscribe</Button>
       </div>
+      <Footer />
     </div>
   );
 }

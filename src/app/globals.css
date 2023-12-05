@@ -4,7 +4,7 @@
 
 :root {
   --background: 0, 0%, 13%;
-  --foreground: 0, 0%, 13%;
+  --foreground: 0, 0%, 95%, 1;
   --primary-foreground: 0, 0%, 13%;
   --primary: 47, 99%, 52%;
   --primary-hover: 47, 99%, 82%;
@@ -25,3 +25,15 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
+
+footer {
+  margin: 2rem;
+}
+body * {
+  color: hsl(var(--foreground));
+}
+
+body {
+  background-color: hsl(var(--background));
+  min-height: 100vh;
+}
