@@ -1,9 +1,7 @@
-import { Roboto_Flex } from "next/font/google";
+import { roboto } from "./fonts";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "@/components/Footer";
-
-const roboto = Roboto_Flex({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
