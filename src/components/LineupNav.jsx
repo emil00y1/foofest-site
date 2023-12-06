@@ -28,14 +28,14 @@ function LineupNav() {
     <nav>
       <div>
         {days.map((day) => (
-          <Button className="uppercase rounded-none" variant="outline" key={day}>
+          <Button className="uppercase rounded-none text-xl px-5 py-4" variant="outline" key={day}>
             {day}
           </Button>
         ))}
       </div>
       <div>
         {stages.map((stage) => (
-          <Button className="uppercase rounded-none" variant="outline" key={stage}>
+          <Button className="rounded-full py-1.5 px-3.5 h-8" variant="outline" key={stage}>
             {stage}
           </Button>
         ))}
