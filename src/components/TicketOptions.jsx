@@ -1,10 +1,10 @@
 import RadioSwitch from "./RadioSwitch";
 
-function TicketOptions(props) {
+function TicketOptions({ ticket }) {
   return (
     <div>
       <p>Ticket</p>
-      <RadioSwitch ticket={props.ticket} />
+      <RadioSwitch ticket={ticket} />
     </div>
   );
 }
