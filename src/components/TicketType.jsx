@@ -2,6 +2,7 @@
 import NumberInput from "@/components/NumberInput";
 import TicketOptions from "@/components/TicketOptions";
 import { useState } from "react";
+import Divider from "./Divider";
 
 function TicketType() {
   const [Amount, setAmount] = useState(0);
@@ -13,8 +14,15 @@ function TicketType() {
         Number of tickets <NumberInput Amount={Amount} setAmount={setAmount} />
       </div>
       {Array.from(Array(Amount), () => (
-        <TicketOptions ticket={ticketCounter++} key={Math.random()} />
+        <TicketOptions ticket={ticketCounter++} key={ticketCounter++} />
       ))}
+      <div className="mt-4">
+        <p className="flex justify-between">
+          Booking fee <span>99.00</span>
+        </p>
+        <Divider />
+        <p className="flex justify-end">1200</p>
+      </div>
     </>
   );
 }
