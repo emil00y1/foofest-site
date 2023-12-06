@@ -25,10 +25,14 @@ export default function Home() {
         <p className="text-3xl font-black text-center">7 DAYS, 24/7</p>
         <div className="flex flex-col gap-4 my-10">
           <Button className="hover:bg-yellow-300 py-2 w-52 block m-auto">
-            <Link href="/buy-tickets">TICKETS</Link>
+            <Link href="/buy-tickets" className="text-background">
+              TICKETS
+            </Link>
           </Button>
           <Button variant="outline" className="hover:bg-yellow-300 border-yellowaccent text-yellowaccent py-2 w-52 block m-auto">
-            <Link href="/lineup">PROGRAM</Link>
+            <Link href="/lineup" className="text-yellowaccent">
+              LINEUP
+            </Link>
           </Button>
         </div>
         <article className="flex flex-col gap-3 pb-4">
