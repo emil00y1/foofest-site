@@ -40,7 +40,7 @@ function Header() {
                 Tickets
               </Link>
               <Link className="text-2xl" href="/lineup" onClick={toggleDrawer}>
-                Program
+                Lineup
               </Link>
             </div>
             <div className="mt-auto">
