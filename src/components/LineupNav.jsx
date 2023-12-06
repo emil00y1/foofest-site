@@ -26,14 +26,14 @@ function LineupNav() {
   console.log("stages", stages);
   return (
     <nav>
-      <div>
+      <div className="flex overflow-scroll">
         {days.map((day) => (
           <Button className="uppercase rounded-none text-xl px-5 py-4" variant="outline" key={day}>
             {day}
           </Button>
         ))}
       </div>
-      <div>
+      <div className="flex flex-wrap gap-2 justify-center">
         {stages.map((stage) => (
           <Button className="rounded-full py-1.5 px-3.5 h-8" variant="outline" key={stage}>
             {stage}
