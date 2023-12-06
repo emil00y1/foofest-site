@@ -5,32 +5,20 @@ function RadioSwitch(props) {
     <>
       <fieldset class="mt-5 px-5 inline">
         <div class="flex border-2 rounded-md border-yellowaccent">
-          <div class="flex items-center p-1">
-            <input
-              type="radio"
-              name={props.ticket}
-              id="standard"
-              class="peer h-0 w-0 opacity-0 focus:outline-none"
-              value="standard"
-            />
+          <div class="flex items-center">
+            <input type="radio" name={props.ticket} id={props.ticket + "standard"} class="peer h-0 w-0 opacity-0 focus:outline-none" value="standard" />
             <label
-              for="standard"
-              class="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2"
+              for={props.ticket + "standard"}
+              class="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
             >
               Standard
             </label>
           </div>
-          <div class="flex items-center p-1">
-            <input
-              type="radio"
-              name={props.ticket}
-              id="vip"
-              class="peer h-0 w-0 opacity-0 focus:outline-none"
-              value="vip"
-            />
+          <div class="flex items-center">
+            <input type="radio" name={props.ticket} id={props.ticket + "vip"} class="peer h-0 w-0 opacity-0 focus:outline-none" value="vip" />
             <label
-              for="vip"
-              class="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2"
+              for={props.ticket + "vip"}
+              class="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
             >
               VIP
             </label>
