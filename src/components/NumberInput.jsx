@@ -1,9 +1,9 @@
-function NumberInput({ setAmount, Amount }) {
+function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
   return (
     <>
       <div className="flex border-2 border-foreground inline p-1.5 rounded-md">
         <button
-          disabled={Amount === 0}
+          disabled={amount === 0}
           onClick={() => {
             setAmount((old) => old - 1);
           }}
@@ -23,7 +23,8 @@ function NumberInput({ setAmount, Amount }) {
           className="bg-background border-1 w-14 text-center"
           id="tickets"
           type="number"
-          value={Amount}
+          readOnly
+          value={amount}
         />
 
         <button
