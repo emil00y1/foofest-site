@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RadioSwitch from "./RadioSwitch";
 
-function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
+function TicketOptions({ ticket }) {
   const [checked, setChecked] = useState("Standard");
 
   let price = () => {
@@ -17,13 +17,7 @@ function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
       <p>
         Ticket {ticket} - {price()}
       </p>
-      <RadioSwitch
-        setVipAmount={setVipAmount}
-        setStandAmount={setStandAmount}
-        setChecked={setChecked}
-        ticket={ticket}
-        checked={checked === "Standard" ? "Standard" : "VIP"}
-      />
+      <RadioSwitch setChecked={setChecked} ticket={ticket} checked={checked === "Standard" ? "Standard" : "VIP"} />
     </div>
   );
 }
