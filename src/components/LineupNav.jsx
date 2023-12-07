@@ -8,7 +8,7 @@ async function fetchFunc() {
   return data;
 }
 
-function LineupNav() {
+function LineupNav({ setStage, setDay }) {
   const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
   const [stages, setStages] = useState([]);
@@ -28,7 +28,14 @@ function LineupNav() {
     <nav>
       <div className="flex overflow-scroll">
         {days.map((day) => (
-          <Button className="uppercase rounded-none text-xl px-5 py-4" variant="outline" key={day}>
+          <Button
+            className="uppercase rounded-none text-xl px-5 py-4"
+            variant="outline"
+            key={day}
+            onClick={() => {
+              setDay([day.substring(0, 3)]);
+            }}
+          >
             {day}
           </Button>
         ))}
