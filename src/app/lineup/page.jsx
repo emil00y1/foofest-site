@@ -13,8 +13,8 @@ async function fetchFunc() {
 
 function Lineup() {
   const [bands, setBands] = useState([]);
-  const [day, setDay] = useState([]);
-  const [stage, setStage] = useState([]);
+  const [day, setDay] = useState("h");
+  const [stage, setStage] = useState(["heyy", "oj"]);
   useEffect(() => {
     const x = async () => {
       const data = await fetchFunc();

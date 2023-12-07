@@ -33,7 +33,8 @@ function LineupNav({ setStage, setDay }) {
             variant="outline"
             key={day}
             onClick={() => {
-              setDay([day.substring(0, 3)]);
+              //setDay(day.substring(0, 3));
+              console.log("return day", day.substring(0, 3));
             }}
           >
             {day}
