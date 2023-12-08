@@ -22,11 +22,11 @@ function CampingAreas() {
   }, []);
 
   return (
-    <legend className="flex" defaultValue="private" aria-label="Visibility Level">
-      {campingArea.map((data) => (
-        <RadioTile key={data.area} data="data"></RadioTile>
+    <div>
+      {campingArea.map((spot) => (
+        <RadioTile key={spot.area} area={spot.area} />
       ))}
-    </legend>
+    </div>
   );
 }
 

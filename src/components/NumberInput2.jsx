@@ -1,6 +1,10 @@
-"use client";
-
-function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
+function NumberInput({
+  tentSpace,
+  setTentTwoAmount,
+  tentTwoAmount,
+  setTentThreeAmount,
+  tentThreeAmount,
+}) {
   return (
     <>
       <div className="flex border-2 border-foreground inline p-1.5 rounded-md">
@@ -20,10 +24,10 @@ function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
             <path d="M200-440v-80h560v80H200Z" />
           </svg>
         </button>
-        <label htmlFor="tickets"></label>
+        <label htmlFor={tentSpace}></label>
         <input
           className="bg-background border-1 w-14 text-center"
-          id="tickets"
+          id={tentSpace}
           type="number"
           readOnly
           value={amount}
