@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { PriceValueContext, PriceProvider, PriceUpdaterContext } from "@/contexts/priceContext";
+import { PriceValueContext } from "@/contexts/priceContext";
 
-function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
-  const checked = useContext(PriceValueContext);
-  const setChecked = useContext(PriceUpdaterContext);
+function NumberInput({ setAmount, amount, setStandAmount, setVipAmount, ticketID }) {
+  const checkedStates = useContext(PriceValueContext);
+
+  // Retrieve the checked state for this specific NumberInput instance
+  const checked = checkedStates[ticketID];
 
   return (
-    <PriceProvider>
+    <>
       <div className="flex border-2 border-foreground inline p-1.5 rounded-md">
         <button
           disabled={amount === 0}
@@ -24,8 +26,8 @@ function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
 
         <button
           onClick={() => {
-            setChecked("Standard");
-            setAmount((old) => old + 1);
+            /*             setChecked("Standard");
+             */ setAmount((old) => old + 1);
             setStandAmount((old) => old + 1);
           }}
         >
@@ -34,7 +36,7 @@ function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
           </svg>
         </button>
       </div>
-    </PriceProvider>
+    </>
   );
 }
 

@@ -1,9 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import RadioSwitch from "./RadioSwitch";
-import { PriceValueContext, PriceProvider } from "@/contexts/priceContext";
+import { PriceValueContext, PriceUpdaterContext } from "@/contexts/priceContext";
 
-function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
-  const checked = useContext(PriceValueContext);
+function TicketOptions({ ticketID, setVipAmount, setStandAmount }) {
+  const checkedStates = useContext(PriceValueContext);
+  const updateCheckedState = useContext(PriceUpdaterContext);
+
+  // Assuming 'ticket' can be used as a unique identifier for each TicketOptions
+  const checked = checkedStates[ticketID];
 
   let price = () => {
     if (checked === "Standard") {
@@ -13,15 +17,17 @@ function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
     }
   };
 
+  const handleCheckedChange = (newValue) => {
+    updateCheckedState(ticketID, newValue);
+  };
+
   return (
-    <PriceProvider>
-      <div className="flex gap-10">
-        <p>
-          Ticket {ticket} - {price()}
-        </p>
-        <RadioSwitch setChecked={setChecked} checked={checked} setVipAmount={setVipAmount} setStandAmount={setStandAmount} ticket={ticket} />
-      </div>
-    </PriceProvider>
+    <div className="flex gap-10">
+      <p>
+        Ticket {ticketID} - {price()}
+      </p>
+      <RadioSwitch setChecked={handleCheckedChange} checked={checked} setVipAmount={setVipAmount} setStandAmount={setStandAmount} ticketID={ticketID} />
+    </div>
   );
 }
 
