@@ -8,10 +8,11 @@ function buyTickets() {
     <>
       <main className="m-4">
         <Headline>Choose your tickets</Headline>
-        {/*         <TicketType />
-         */}
+        <TicketType />
+
         {/*  <CampingAreas /> */}
-        <CampingPreference />
+        {/*         <CampingPreference />
+         */}
       </main>
     </>
   );

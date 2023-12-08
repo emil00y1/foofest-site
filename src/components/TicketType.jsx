@@ -6,6 +6,7 @@ import Divider from "./Divider";
 
 function TicketType() {
   const [amount, setAmount] = useState(0);
+  const [price, setPrice] = useState(0);
   const [vipAmount, setVipAmount] = useState(0);
   const [standAmount, setStandAmount] = useState(0);
   let ticketCounter = 1;
@@ -27,6 +28,7 @@ function TicketType() {
       </div>
       {Array.from(Array(amount), () => (
         <TicketOptions
+          setPrice={setPrice}
           setVipAmount={setVipAmount}
           setStandAmount={setStandAmount}
           ticket={ticketCounter++}

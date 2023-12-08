@@ -1,14 +1,14 @@
 import { useState } from "react";
 import RadioSwitch from "./RadioSwitch";
 
-function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
+function TicketOptions({ ticket, setVipAmount, setStandAmount, setPrice }) {
   const [checked, setChecked] = useState("Standard");
 
   let price = () => {
     if (checked === "Standard") {
-      return "799.00";
+      return 799;
     } else if (checked === "VIP") {
-      return "1,299.00";
+      return 1299;
     }
   };
 
