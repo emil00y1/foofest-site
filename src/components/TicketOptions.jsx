@@ -1,33 +1,27 @@
 import { useContext, useState } from "react";
 import RadioSwitch from "./RadioSwitch";
-import { PriceValueContext } from "@/contexts/priceContext";
+import { PriceValueContext, PriceProvider } from "@/contexts/priceContext";
 
 function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
   const checked = useContext(PriceValueContext);
-  const [switchCheck, setSwitchCheck] = useState("Standard");
 
   let price = () => {
-    if (switchCheck === "Standard") {
+    if (checked === "Standard") {
       return "799.00";
-    } else if (switchCheck === "VIP") {
+    } else if (checked === "VIP") {
       return "1,299.00";
     }
   };
 
   return (
-    <div className="flex gap-10">
-      <p>
-        Ticket {ticket} - {price()}
-      </p>
-      <RadioSwitch
-        setSwitchCheck={setSwitchCheck}
-        switchCheck={switchCheck}
-        setVipAmount={setVipAmount}
-        setStandAmount={setStandAmount}
-        ticket={ticket}
-        checked={checked === "Standard" ? "Standard" : "VIP"}
-      />
-    </div>
+    <PriceProvider>
+      <div className="flex gap-10">
+        <p>
+          Ticket {ticket} - {price()}
+        </p>
+        <RadioSwitch setChecked={setChecked} checked={checked} setVipAmount={setVipAmount} setStandAmount={setStandAmount} ticket={ticket} />
+      </div>
+    </PriceProvider>
   );
 }
 

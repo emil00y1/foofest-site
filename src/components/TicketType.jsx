@@ -3,7 +3,6 @@ import NumberInput from "@/components/NumberInput";
 import TicketOptions from "@/components/TicketOptions";
 import { useState } from "react";
 import Divider from "./Divider";
-import { PriceProvider } from "@/contexts/priceContext";
 
 function TicketType() {
   const [amount, setAmount] = useState(0);
@@ -16,7 +15,7 @@ function TicketType() {
   }; */
 
   return (
-    <PriceProvider>
+    <>
       <div className="flex">
         Number of tickets <NumberInput setStandAmount={setStandAmount} setVipAmount={setVipAmount} amount={amount} setAmount={setAmount} />
       </div>
@@ -30,7 +29,7 @@ function TicketType() {
         <Divider />
         <p className="flex justify-end">{799 * standAmount + 1299 * vipAmount + 99}</p>
       </div>
-    </PriceProvider>
+    </>
   );
 }
 

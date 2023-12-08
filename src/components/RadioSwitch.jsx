@@ -1,7 +1,7 @@
 import { PriceUpdaterContext } from "@/contexts/priceContext";
 import { useContext } from "react";
 
-function RadioSwitch({ ticket, checked, setPrice, setVipAmount, setStandAmount, setSwitchCheck, switchCheck }) {
+function RadioSwitch({ ticket, checked, setPrice, setVipAmount, setStandAmount }) {
   const setChecked = useContext(PriceUpdaterContext);
   return (
     <>
@@ -13,9 +13,8 @@ function RadioSwitch({ ticket, checked, setPrice, setVipAmount, setStandAmount, 
               htmlFor={ticket + "standard"}
               className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
-                if (switchCheck === "VIP") {
+                if (checked === "VIP") {
                   setChecked("Standard");
-                  setSwitchCheck("Standard");
                   setStandAmount((old) => old + 1);
                   setVipAmount((old) => (old > 0 ? old - 1 : old));
                 }
@@ -30,9 +29,8 @@ function RadioSwitch({ ticket, checked, setPrice, setVipAmount, setStandAmount, 
               htmlFor={ticket + "vip"}
               className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
-                if (switchCheck === "Standard") {
+                if (checked === "Standard") {
                   setChecked("VIP");
-                  setSwitchCheck("VIP");
                   setStandAmount((old) => (old > 0 ? old - 1 : old));
                   setVipAmount((old) => old + 1);
                 }
