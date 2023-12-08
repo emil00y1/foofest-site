@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { PriceUpdaterContext } from "@/contexts/priceContext";
 
-function RadioSwitch({ ticketID, checked, setVipAmount, setStandAmount }) {
+function RadioSwitch({ ticketID, checked, setVipAmount, setStandAmount, onTypeChange }) {
   const updateCheckedState = useContext(PriceUpdaterContext);
+  const handleRadioChange = (type) => {
+    onTypeChange(type);
+  };
 
   return (
     <>

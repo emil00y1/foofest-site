@@ -10,6 +10,7 @@ function TicketType() {
   const [amount, setAmount] = useState(0);
   const [vipAmount, setVipAmount] = useState(0);
   const [standAmount, setStandAmount] = useState(0);
+  const [ticketTypes, setTicketTypes] = useState([]);
 
   return (
     <PriceProvider>
@@ -18,7 +19,18 @@ function TicketType() {
         <NumberInput setStandAmount={setStandAmount} setVipAmount={setVipAmount} amount={amount} setAmount={setAmount} ticketID="numberInput" />
       </div>
       {Array.from({ length: amount }, (_, index) => (
-        <TicketOptions key={index} ticketID={`ticketOption-${index}`} setVipAmount={setVipAmount} setStandAmount={setStandAmount} />
+        <TicketOptions
+          key={index}
+          ticketID={`ticketOption-${index}`}
+          setVipAmount={setVipAmount}
+          setStandAmount={setStandAmount}
+          // Pass down the function to update ticket type
+          updateTicketType={(type) => {
+            let newTicketTypes = [...ticketTypes];
+            newTicketTypes[index] = type;
+            setTicketTypes(newTicketTypes);
+          }}
+        />
       ))}
       <div className="mt-4">
         <p className="flex justify-between">

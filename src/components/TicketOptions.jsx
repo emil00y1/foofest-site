@@ -2,7 +2,7 @@ import { useContext } from "react";
 import RadioSwitch from "./RadioSwitch";
 import { PriceValueContext, PriceUpdaterContext } from "@/contexts/priceContext";
 
-function TicketOptions({ ticketID, setVipAmount, setStandAmount }) {
+function TicketOptions({ ticketID, setVipAmount, setStandAmount, updateTicketType }) {
   const checkedStates = useContext(PriceValueContext);
   const updateCheckedState = useContext(PriceUpdaterContext);
 
@@ -21,12 +21,16 @@ function TicketOptions({ ticketID, setVipAmount, setStandAmount }) {
     updateCheckedState(ticketID, newValue);
   };
 
+  const handleTypeChange = (newType) => {
+    updateTicketType(newType);
+  };
+
   return (
     <div className="flex gap-10">
       <p>
         Ticket {ticketID} - {price()}
       </p>
-      <RadioSwitch setChecked={handleCheckedChange} checked={checked} setVipAmount={setVipAmount} setStandAmount={setStandAmount} ticketID={ticketID} />
+      <RadioSwitch setChecked={handleCheckedChange} checked={checked} setVipAmount={setVipAmount} setStandAmount={setStandAmount} ticketID={ticketID} onTypeChange={handleTypeChange} />
     </div>
   );
 }
