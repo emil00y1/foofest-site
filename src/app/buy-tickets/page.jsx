@@ -7,11 +7,10 @@ function buyTickets() {
   return (
     <>
       <main className="m-4">
-        <Headline>Choose your tickets</Headline>
         {/*         <TicketType />
          */}
-        {/*  <CampingAreas /> */}
-        <CampingPreference />
+        <CampingAreas />
+        {/* <CampingPreference /> */}
       </main>
     </>
   );

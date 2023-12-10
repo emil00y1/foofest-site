@@ -1,6 +1,8 @@
 "use client";
 import { React, useEffect, useState } from "react";
 import RadioTile from "@/components/RadioTile";
+import Headline from "./Headline";
+import NextButton from "./NextButton";
 
 async function fetchFunc() {
   const res = await fetch("http://localhost:8080/available-spots");
@@ -22,10 +24,15 @@ function CampingAreas() {
   }, []);
 
   return (
-    <div>
-      {campingArea.map((spot) => (
-        <RadioTile key={spot.area} area={spot.area} />
-      ))}
+    <div className="flex flex-col gap-6">
+      <Headline>Choose camping area</Headline>
+      <div className="flex flex-col gap-3">
+        {campingArea.map((spot) => (
+          <RadioTile key={spot.area} area={spot.area} spots={spot.spots} availableSpots={spot.available} img={spot.img} />
+        ))}
+      </div>
+
+      <NextButton></NextButton>
     </div>
   );
 }
