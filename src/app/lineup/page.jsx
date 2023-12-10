@@ -5,21 +5,27 @@ import LineupNav from "@/components/LineupNav";
 import ArtistCard from "@/components/ArtistCard";
 import { useState, useEffect } from "react";
 
-async function fetchFunc() {
+async function fetchScheduleFunc() {
   const res = await fetch("http://localhost:8080/schedule");
+  const data = await res.json();
+  return data;
+}
+async function fetchBandsFunc() {
+  const res = await fetch("http://localhost:8080/bands");
   const data = await res.json();
   return data;
 }
 
 function Lineup() {
   const [bands, setBands] = useState([]);
+  const [bandData, setBandData] = useState([]);
   const [stages, setStages] = useState([]);
   const [selectedDay, setSelectedDay] = useState("sun");
   const [selectedStage, setSelectedStage] = useState("Midgard");
 
   useEffect(() => {
     const x = async () => {
-      const data = await fetchFunc();
+      const data = await fetchScheduleFunc();
       console.log("artist", data.Midgard.selectedDay);
       // Memoize the filtered data function to ensure it's recalculated only when necessary
       const getFilteredData = () => {
@@ -36,7 +42,17 @@ function Lineup() {
 
   useEffect(() => {
     const x = async () => {
-      const data = await fetchFunc();
+      const data = await fetchBandsFunc();
+      console.log("data", data);
+      setBandData((o) => o.concat(data));
+    };
+    x();
+    x;
+  }, []);
+
+  useEffect(() => {
+    const x = async () => {
+      const data = await fetchScheduleFunc();
       console.log("data", data);
       const stageKeys = Object.keys(data);
       setStages((o) => o.concat(stageKeys));
@@ -45,7 +61,7 @@ function Lineup() {
     x;
   }, []);
 
-  console.log("setBands", bands);
+  console.log("bandData", bandData);
   return (
     <main>
       <Headline>Lineup</Headline>
@@ -55,13 +71,35 @@ function Lineup() {
         setSelectedStage={setSelectedStage}
       ></LineupNav>
       <section className="p-3">
-        {bands.map((band) => (
-          <ArtistCard
-            act={band.act}
-            start={band.start}
-            end={band.end}
-          ></ArtistCard>
-        ))}
+        {bandData.length > 0 ? (
+          bands.map((band) => {
+            const artistName = band.act;
+
+            // Skip rendering if artistName is "break"
+            if (artistName.toLowerCase() === "break") {
+              return null;
+            }
+
+            const matchingBand = bandData.find(
+              (bandData) => bandData.name === artistName
+            );
+
+            // Check if matchingBand is not undefined before accessing its properties
+            const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
+
+            return (
+              <ArtistCard
+                imageSrc={matchingPhotoUrl}
+                act={band.act}
+                start={band.start}
+                end={band.end}
+                key={band.act}
+              ></ArtistCard>
+            );
+          })
+        ) : (
+          <p>No band data available</p>
+        )}
       </section>
     </main>
   );
