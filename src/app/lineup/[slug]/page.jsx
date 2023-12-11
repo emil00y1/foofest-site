@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
 export default async function slug({ params }) {
   const { slug } = params;
 
-  const res = await fetch(`https://stump-impossible-trail.glitch.me${slug}`);
+  const res = await fetch(`https://stump-impossible-trail.glitch.me/${slug}`);
   const data = await res.json();
 
   const img = data.logo.startsWith("https")
