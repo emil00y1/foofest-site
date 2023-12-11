@@ -4,7 +4,7 @@ import Link from "next/link";
 function ArtistCard({ act, start, end, imageSrc, slug }) {
   const img = imageSrc.startsWith("https")
     ? imageSrc
-    : "https://stump-impossible-trail.glitch.me/logos/" + imageSrc;
+    : "http://localhost:8080/logos/" + imageSrc;
   return (
     <Link href={`/lineup/${slug}`} prefetch={false}>
       <article className="bg-extradark rounded p-2 flex">

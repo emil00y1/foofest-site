@@ -1,23 +1,9 @@
 import Image from "next/image";
 
-/* export async function generateStaticParams() {
-  const res = await fetch("https://stump-impossible-trail.glitch.me/bands/");
-
-  const pages = await res.json();
-
-  const paths = pages.map((page) => {
-    return { slug: page.slug };
-  });
-
-  return paths;
-} */
-
 export async function generateMetadata({ params }) {
   const { slug } = params;
 
-  const res = await fetch(
-    `https://stump-impossible-trail.glitch.me/bands/${slug}`
-  );
+  const res = await fetch(`http://localhost:8080/bands/${slug}`);
 
   const data = await res.json();
 
@@ -29,14 +15,12 @@ export async function generateMetadata({ params }) {
 export default async function slug({ params }) {
   const { slug } = params;
 
-  const res = await fetch(
-    `https://stump-impossible-trail.glitch.me/bands/${slug}`
-  );
+  const res = await fetch(`http://localhost:8080/bands/${slug}`);
   const data = await res.json();
 
   const img = data.logo.startsWith("https")
     ? data.logo
-    : "https://stump-impossible-trail.glitch.me/logos/" + data.logo;
+    : "http://localhost:8080/logos/" + data.logo;
 
   return (
     <>
