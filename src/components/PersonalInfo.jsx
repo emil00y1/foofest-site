@@ -35,7 +35,7 @@ function PersonalInfo() {
           </fieldset>
         </div>
         <div className="flex gap-2 items-center">
-          <Checkbox />
+          <Checkbox required />
           <Label>Accept terms and conditions</Label>
         </div>
       </div>
