@@ -1,21 +1,40 @@
 import Image from "next/image";
 
-export default async function slug() {
-  const res = await fetch("http://localhost:8080/bands/tool");
+export async function generateStaticParams() {
+  const res = await fetch("http://localhost:8080/bands/");
+
+  const pages = await res.json();
+
+  const paths = pages.map((page) => {
+    return { slug: page.slug };
+  });
+
+  return paths;
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+
+  const res = await fetch(`http://localhost:8080/bands/${slug}`);
+
   const data = await res.json();
 
-  const img = data.logo.startsWith("https")
-    ? data.logo
-    : "http://localhost:8080/logos/" + data.logo;
+  return {
+    title: data.name,
+  };
+}
+
+export default async function slug({ params }) {
+  const { slug } = params;
+
+  const res = await fetch(`http://localhost:8080/bands/${slug}`);
+  const data = await res.json();
+
+  const img = data.logo.startsWith("https") ? data.logo : "http://localhost:8080/logos/" + data.logo;
 
   return (
     <>
-      <Image
-        src="https://source.unsplash.com/random/720x480?random=30038"
-        alt={data.name}
-        width="200"
-        height="200"
-      ></Image>
+      <Image src={img} alt={data.name} width="200" height="200"></Image>
       <p>{data.logoCredits}</p>
       <h1>{data.name}</h1>
       <p>{data.genre}</p>
