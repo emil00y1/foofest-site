@@ -94,6 +94,7 @@ function Lineup() {
                 start={band.start}
                 end={band.end}
                 key={band.act}
+                slug={matchingBand.slug}
               ></ArtistCard>
             );
           })
