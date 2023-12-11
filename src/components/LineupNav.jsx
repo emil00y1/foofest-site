@@ -2,12 +2,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-/* async function fetchFunc() {
-  const res = await fetch("http://localhost:8080/schedule");
-  const data = await res.json();
-  return data;
-} */
-
 function LineupNav({ stages, setSelectedStage, setSelectedDay }) {
   const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 

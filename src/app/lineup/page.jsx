@@ -6,12 +6,12 @@ import ArtistCard from "@/components/ArtistCard";
 import { useState, useEffect } from "react";
 
 async function fetchScheduleFunc() {
-  const res = await fetch("http://localhost:8080/schedule");
+  const res = await fetch("https://stump-impossible-trail.glitch.me/schedule");
   const data = await res.json();
   return data;
 }
 async function fetchBandsFunc() {
-  const res = await fetch("http://localhost:8080/bands");
+  const res = await fetch("https://stump-impossible-trail.glitch.me/bands");
   const data = await res.json();
   return data;
 }

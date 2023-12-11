@@ -16,7 +16,7 @@ function BuyTickets() {
   return (
     <>
       <main className="m-4">
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <TicketType />
 
           <CampingAreas />
