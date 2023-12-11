@@ -6,7 +6,7 @@ function ArtistCard({ act, start, end, imageSrc, slug }) {
     ? imageSrc
     : "http://https://stump-impossible-trail.glitch.me/logos/" + imageSrc;
   return (
-    <Link href={`/lineup/${slug}`}>
+    <Link href={`/lineup/${slug}`} prefetch={false}>
       <article className="bg-extradark rounded p-2 flex">
         <Image src={img} width={150} height={150} alt={"image of " + act} />
         <div>
