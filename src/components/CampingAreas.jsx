@@ -37,8 +37,6 @@ function CampingAreas() {
           />
         ))}
       </div>
-
-      <NextButton></NextButton>
     </div>
   );
 }

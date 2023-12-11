@@ -26,6 +26,7 @@ function BuyTickets() {
           <PaymentInfo />
           <NextButton
             onClick={() => {
+              console.log("klikket på next");
               setPageView((o) => o + 1);
             }}
           />
