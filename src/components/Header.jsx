@@ -17,26 +17,76 @@ function Header() {
         <Image src="/logo.svg" alt="logo" width="50" height="50"></Image>
       </Link>
       <div className="flex self-center">
-        <svg onClick={toggleDrawer} className="cursor-pointer	" xmlns="http://www.w3.org/2000/svg" width="34" height="28" viewBox="0 0 34 28" fill="none">
+        <svg
+          onClick={toggleDrawer}
+          className="cursor-pointer	"
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="28"
+          viewBox="0 0 34 28"
+          fill="none"
+        >
           <g filter="url(#filter0_d_93_211)">
-            <path d="M2 2H31" stroke="#C8C8C8" strokeWidth="3" strokeLinecap="round" />
-            <path d="M2 13H31" stroke="#C8C8C8" strokeWidth="3" strokeLinecap="round" />
-            <path d="M2 24H31" stroke="#C8C8C8" strokeWidth="3" strokeLinecap="round" />
+            <path
+              d="M2 2H31"
+              stroke="#C8C8C8"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            <path
+              d="M2 13H31"
+              stroke="#C8C8C8"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            <path
+              d="M2 24H31"
+              stroke="#C8C8C8"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
           </g>
         </svg>
-        <Drawer style={{ backgroundColor: "hsl(var(--extra-dark))" }} open={isOpen} onClose={toggleDrawer} direction="right">
+        <Drawer
+          style={{ backgroundColor: "hsl(var(--extra-dark))" }}
+          open={isOpen}
+          onClose={toggleDrawer}
+          direction="right"
+        >
           <div className="h-full flex flex-col">
             <div className="flex m-6 justify-end">
-              <svg onClick={toggleDrawer} className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M2.5 26L26.5 2" stroke="#C8C8C8" strokeWidth="3" strokeLinecap="round" />
-                <path d="M2 2L26 26" stroke="#C8C8C8" strokeWidth="3" strokeLinecap="round" />
+              <svg
+                onClick={toggleDrawer}
+                className="cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+              >
+                <path
+                  d="M2.5 26L26.5 2"
+                  stroke="#C8C8C8"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M2 2L26 26"
+                  stroke="#C8C8C8"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
               </svg>
             </div>
             <div className="flex flex-col items-center gap-8 mt-12">
               <Link className="text-2xl" href="/" onClick={toggleDrawer}>
                 Home
               </Link>
-              <Link className="text-2xl" href="/buy-tickets" onClick={toggleDrawer}>
+              <Link
+                className="text-2xl"
+                href="/buy-tickets"
+                onClick={toggleDrawer}
+              >
                 Tickets
               </Link>
               <Link className="text-2xl" href="/lineup" onClick={toggleDrawer}>

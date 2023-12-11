@@ -1,12 +1,12 @@
-import Headline from "./Headline";
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import Headline from "./Headline";
 
-function PersonalInfo() {
+function PaymentInfo() {
   return (
     <>
-      <Headline>Personal info</Headline>
+      <Headline>Payment Info</Headline>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-5">
           <div>
@@ -43,4 +43,4 @@ function PersonalInfo() {
   );
 }
 
-export default PersonalInfo;
+export default PaymentInfo;
