@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: "localhost",
         port: "8080",
       },
+      {
+        protocol: "https",
+        hostname: "stump-impossible-trail.glitch.me",
+        port: "",
+      },
     ],
   },
 };
