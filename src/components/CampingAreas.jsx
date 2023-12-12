@@ -28,13 +28,7 @@ function CampingAreas() {
       <Headline>Choose camping area</Headline>
       <div className="flex flex-col gap-3">
         {campingArea.map((spot) => (
-          <RadioTile
-            key={spot.area}
-            area={spot.area}
-            spots={spot.spots}
-            availableSpots={spot.available}
-            img={spot.img}
-          />
+          <RadioTile key={spot.area} area={spot.area} spots={spot.spots} availableSpots={spot.available} img={spot.img} />
         ))}
       </div>
     </div>

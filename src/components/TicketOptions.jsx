@@ -17,13 +17,7 @@ function TicketOptions({ ticket, setVipAmount, setStandAmount }) {
       <p>
         Ticket {ticket} - {price()}
       </p>
-      <RadioSwitch
-        setVipAmount={setVipAmount}
-        setStandAmount={setStandAmount}
-        setChecked={setChecked}
-        ticket={ticket}
-        checked={checked === "Standard" ? "Standard" : "VIP"}
-      />
+      <RadioSwitch setVipAmount={setVipAmount} setStandAmount={setStandAmount} setChecked={setChecked} ticket={ticket} checked={checked === "Standard" ? "Standard" : "VIP"} />
     </div>
   );
 }
