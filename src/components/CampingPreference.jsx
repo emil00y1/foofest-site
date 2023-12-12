@@ -7,7 +7,6 @@ import {
 import NumberInput2 from "./NumberInput2";
 import { useState } from "react";
 import Divider from "./Divider";
-import NextButton from "./NextButton";
 import Headline from "./Headline";
 
 function CampingPreference() {
