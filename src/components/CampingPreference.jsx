@@ -5,10 +5,7 @@ import { useState } from "react";
 import Divider from "./Divider";
 import Headline from "./Headline";
 
-function CampingPreference() {
-  const [tentTwoAmount, setTentTwoAmount] = useState(0);
-  const [tentThreeAmount, setTentThreeAmount] = useState(0);
-  const [greenChecked, setGreenChecked] = useState(false);
+function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, setTentThreeAmount, greenChecked, setGreenChecked }) {
   const greenChange = (e) => {
     setGreenChecked(e.target.checked);
   };
