@@ -18,7 +18,7 @@ function BuyTickets() {
   const [tentThreeAmount, setTentThreeAmount] = useState(0);
   const [greenChecked, setGreenChecked] = useState(false);
   const [people, setPeople] = useState([]);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState([]);
 
   const ticketData = {
     vipTickets: vipAmount,

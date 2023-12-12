@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Headline from "./Headline";
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 function PersonalInfo({ amount, setPeople }) {
-  const initialPersonData = Array.from({ length: amount }, () => ({
-    firstname: "",
-    surname: "",
-    email: "",
-    phone: "",
-  }));
-  const [localPersonData, setLocalPersonData] = useState(initialPersonData);
+  const [localPersonData, setLocalPersonData] = useState(amount);
 
-  const handleChange = (e) => {
-    const [name, index] = e.target.name.split("-");
+  useEffect(() => {
+    setLocalPersonData(amount);
+  }, [amount]);
+
+  const handleChange = (e, index) => {
+    const name = e.target.name.split("-")[0];
     const updatedTickets = [...localPersonData];
     updatedTickets[index] = {
       ...updatedTickets[index],
@@ -28,11 +26,13 @@ function PersonalInfo({ amount, setPeople }) {
     <>
       <div className="flex flex-col gap-8 mb-4">
         <div className="flex flex-col gap-10">
-          {Array.from(Array(amount), (element, index) => (
+          {localPersonData.map((ticket, index) => (
             <div className="flex flex-col gap-5" key={index}>
               <div>
                 <p className="text-xl">Ticket {index + 1}</p>
-                <p className="text-sm opacity-70">Standard ticket</p>
+                <p className="text-sm opacity-70">
+                  {ticket.vip ? "VIP Ticket" : "Standard Ticket"}
+                </p>
               </div>
               <fieldset className="flex flex-col gap-2">
                 <div className="flex gap-5">

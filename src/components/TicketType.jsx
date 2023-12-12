@@ -15,9 +15,22 @@ function TicketType({
 }) {
   let ticketCounter = 1;
 
-  /* const handlePriceUpdate = () => {
-    setPrice((prevPrice) => prevPrice + 799 * amount);
-  }; */
+  function totalPrice(tickets) {
+    const vipPrice = 1299;
+    const standardPrice = 799;
+
+    let totalPrice = 0;
+
+    amount.forEach((ticket) => {
+      if (ticket.vip) {
+        totalPrice += vipPrice;
+      } else {
+        totalPrice += standardPrice;
+      }
+    });
+
+    return totalPrice;
+  }
 
   return (
     <>
@@ -30,12 +43,16 @@ function TicketType({
           setAmount={setAmount}
         />
       </div>
-      {Array.from(Array(amount), () => (
+      {amount.map((ticketOption, index) => (
         <TicketOptions
-          setVipAmount={setVipAmount}
-          setStandAmount={setStandAmount}
-          ticket={ticketCounter++}
-          key={ticketCounter++}
+          amount={amount}
+          setAmount={setAmount}
+          ticketIndex={index} //
+          /* setVipAmount={setVipAmount}
+          setStandAmount={setStandAmount} */
+          ticket={index + 1}
+          key={index} // Unique key for each component
+          vip={ticketOption.vip} // Passing vip value to TicketOptions
         />
       ))}
       <div className="mt-4">
@@ -43,9 +60,7 @@ function TicketType({
           Booking fee <span>99.00</span>
         </p>
         <Divider />
-        <p className="flex justify-end">
-          {799 * standAmount + 1299 * vipAmount + 99}
-        </p>
+        <p className="flex justify-end">{99 + totalPrice()}</p>
       </div>
     </>
   );
