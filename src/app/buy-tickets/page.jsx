@@ -7,6 +7,8 @@ import PaymentInfo from "@/components/PaymentInfo";
 import PersonalInfo from "@/components/PersonalInfo";
 import TicketType from "@/components/TicketType";
 import { useState } from "react";
+import Headline from "@/components/Headline";
+import Confirmation from "@/components/Confirmation";
 
 function BuyTickets() {
   const [pageView, setPageView] = useState(1);
@@ -18,12 +20,52 @@ function BuyTickets() {
   const [greenChecked, setGreenChecked] = useState(false);
   const [people, setPeople] = useState([]);
 
+  const ticketData = {
+    vipTickets: vipAmount,
+    standardTickets: standAmount,
+    campingArea: chosenArea,
+    twoPersTent: tentTwoAmount,
+    threePersTent: tentThreeAmount,
+    greenCamping: greenChecked,
+  };
+
+  let headersList = {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5ZXphdWFlY3RhbW9nZ2xrbXZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0OTcyODUsImV4cCI6MjAwMDA3MzI4NX0.5CbbGAvqETjhd1_tbVm-oa-4F_JHliJV0Xuy_dG2rms",
+    Prefer: "return=representation",
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+
+  /* let data = await response.text();
+console.log(data); */
+  let bodyContent = JSON.stringify(ticketData);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (pageView === 5) {
+      fetch("https://syezauaectamogglkmvc.supabase.co/rest/v1/foofest", {
+        method: "POST",
+        body: bodyContent,
+        headers: headersList,
+      });
+    }
   };
   return (
     <>
       <main className="m-4">
+        {pageView === 1 ? (
+          <Headline>Choose your tickets</Headline>
+        ) : pageView === 2 ? (
+          <Headline>Choose camping area</Headline>
+        ) : pageView === 3 ? (
+          <Headline>camping preferences</Headline>
+        ) : pageView === 4 ? (
+          <Headline>Personal info</Headline>
+        ) : pageView === 5 ? (
+          <Headline>Payment info</Headline>
+        ) : null}
         <form onSubmit={handleSubmit}>
           {pageView === 1 ? (
             <TicketType standAmount={standAmount} setStandAmount={setStandAmount} vipAmount={vipAmount} setVipAmount={setVipAmount} />
@@ -42,9 +84,11 @@ function BuyTickets() {
             <PersonalInfo />
           ) : pageView === 5 ? (
             <PaymentInfo />
-          ) : null}
+          ) : (
+            <Confirmation />
+          )}
 
-          {pageView < 6 ? (
+          {pageView < 5 ? (
             <Button
               variant="outline"
               className="p-6 border-yellowaccent text-yellowaccent gap-4 text-2xl uppercase w-48 m-auto hover:bg-yellowaccent hover:text-background group"
@@ -62,6 +106,17 @@ function BuyTickets() {
                   className="group-hover:stroke-blue-500"
                 />
               </svg>
+            </Button>
+          ) : pageView === 5 ? (
+            <Button
+              variant="outline"
+              className="p-6 border-yellowaccent text-yellowaccent gap-4 text-2xl uppercase m-auto hover:bg-yellowaccent hover:text-background group"
+              onClick={() => {
+                console.log("klikket på next");
+                setPageView((o) => o + 1);
+              }}
+            >
+              CONFIRM PAYMENT
             </Button>
           ) : null}
         </form>

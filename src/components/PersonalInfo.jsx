@@ -6,7 +6,6 @@ import { Label } from "./ui/label";
 function PersonalInfo() {
   return (
     <>
-      <Headline>Personal info</Headline>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-5">
           <div>

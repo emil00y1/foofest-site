@@ -16,7 +16,6 @@ function TicketType({ standAmount, setStandAmount, vipAmount, setVipAmount }) {
 
   return (
     <>
-      <Headline>Choose your tickets</Headline>
       <div className="flex">
         Number of tickets <NumberInput setStandAmount={setStandAmount} setVipAmount={setVipAmount} amount={amount} setAmount={setAmount} />
       </div>
