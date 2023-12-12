@@ -8,6 +8,7 @@ import TicketType from "@/components/TicketType";
 import { useState } from "react";
 import Headline from "@/components/Headline";
 import Confirmation from "@/components/Confirmation";
+import { Progress } from "@/components/ui/progress";
 
 function BuyTickets() {
   const [pageView, setPageView] = useState(1);
@@ -67,6 +68,9 @@ console.log(data); */
         ) : pageView === 5 ? (
           <Headline>Payment info</Headline>
         ) : null}
+
+        <Progress value={pageView * 16.66} className="mb-6" />
+
         <form onSubmit={handleSubmit}>
           {pageView === 1 ? (
             <TicketType amount={amount} setAmount={setAmount} standAmount={standAmount} setStandAmount={setStandAmount} vipAmount={vipAmount} setVipAmount={setVipAmount} />
