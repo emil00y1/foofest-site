@@ -13,7 +13,6 @@ function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, s
 
   return (
     <>
-      <Headline>camping preferences</Headline>
       <div className="flex flex-col gap-6">
         <div className="m-0 p-0">
           <input className="peer h-0 w-0 opacity-0 focus:outline-none" id="greencamping" type="checkbox" onChange={greenChange} />

@@ -21,7 +21,6 @@ function TicketType({
 
   return (
     <>
-      <Headline>Choose your tickets</Headline>
       <div className="flex">
         Number of tickets{" "}
         <NumberInput
