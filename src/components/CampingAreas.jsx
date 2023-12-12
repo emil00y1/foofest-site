@@ -11,6 +11,7 @@ async function fetchFunc() {
 
 function CampingAreas({ chosenArea, setChosenArea }) {
   const [campingArea, setCampingArea] = useState([]);
+
   useEffect(() => {
     const x = async () => {
       const data = await fetchFunc();
