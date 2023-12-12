@@ -27,6 +27,7 @@ function BuyTickets() {
     twoPersTent: tentTwoAmount,
     threePersTent: tentThreeAmount,
     greenCamping: greenChecked,
+    people: JSON.stringify(people),
   };
 
   let headersList = {
@@ -40,10 +41,6 @@ function BuyTickets() {
   /* let data = await response.text();
 console.log(data); */
   let bodyContent = JSON.stringify(ticketData);
-
-  const addPersonData = (personData) => {
-    setPeople((prevPeople) => [...prevPeople, personData]);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -95,7 +92,7 @@ console.log(data); */
               setGreenChecked={setGreenChecked}
             />
           ) : pageView === 4 ? (
-            <PersonalInfo amount={amount} addPersonData={addPersonData} />
+            <PersonalInfo setPeople={setPeople} amount={amount} />
           ) : pageView === 5 ? (
             <PaymentInfo />
           ) : (

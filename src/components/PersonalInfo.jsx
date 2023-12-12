@@ -4,7 +4,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-function PersonalInfo({ amount, addPersonData }) {
+function PersonalInfo({ amount, setPeople }) {
   const initialPersonData = Array.from({ length: amount }, () => ({
     firstname: "",
     surname: "",
@@ -21,6 +21,7 @@ function PersonalInfo({ amount, addPersonData }) {
       [name]: e.target.value,
     };
     setLocalPersonData(updatedTickets);
+    setPeople(localPersonData);
   };
 
   return (
