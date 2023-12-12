@@ -4,29 +4,22 @@ import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-function PersonalInfo({ amount, setPeople }) {
-  const [localPersonData, setLocalPersonData] = useState(amount);
-
-  useEffect(() => {
-    setLocalPersonData(amount);
-  }, [amount]);
-
-  const handleChange = (e, index) => {
+function PersonalInfo({ amount, setAmount }) {
+  const handleChange = (index) => (e) => {
     const name = e.target.name.split("-")[0];
-    const updatedTickets = [...localPersonData];
+    const updatedTickets = [...amount];
     updatedTickets[index] = {
       ...updatedTickets[index],
       [name]: e.target.value,
     };
-    setLocalPersonData(updatedTickets);
-    setPeople(localPersonData);
+    setAmount(updatedTickets);
   };
 
   return (
     <>
       <div className="flex flex-col gap-8 mb-4">
         <div className="flex flex-col gap-10">
-          {localPersonData.map((ticket, index) => (
+          {amount.map((ticket, index) => (
             <div className="flex flex-col gap-5" key={index}>
               <div>
                 <p className="text-xl">Ticket {index + 1}</p>
@@ -42,8 +35,8 @@ function PersonalInfo({ amount, setPeople }) {
                       type="text"
                       id={"firstname" + index}
                       name={"firstname-" + index}
-                      value={localPersonData[index].name}
-                      onChange={handleChange}
+                      value={ticket.firstname}
+                      onChange={handleChange(index)}
                     />
                   </div>
                   <div>
@@ -52,8 +45,8 @@ function PersonalInfo({ amount, setPeople }) {
                       type="text"
                       id={"surname" + index}
                       name={"surname-" + index}
-                      value={localPersonData[index].surname}
-                      onChange={handleChange}
+                      value={ticket.surname}
+                      onChange={handleChange(index)}
                     />
                   </div>
                 </div>
@@ -63,8 +56,8 @@ function PersonalInfo({ amount, setPeople }) {
                     type="email"
                     id={"email" + index}
                     name={"email-" + index}
-                    value={localPersonData[index].email}
-                    onChange={handleChange}
+                    value={ticket.email}
+                    onChange={handleChange(index)}
                   />
                 </div>
                 <div>
@@ -73,8 +66,8 @@ function PersonalInfo({ amount, setPeople }) {
                     type="tel"
                     id={"phone" + index}
                     name={"phone-" + index}
-                    value={localPersonData[index].phone}
-                    onChange={handleChange}
+                    value={ticket.phone}
+                    onChange={handleChange(index)}
                   />
                 </div>
               </fieldset>

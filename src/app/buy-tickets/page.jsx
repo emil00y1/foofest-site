@@ -17,17 +17,15 @@ function BuyTickets() {
   const [tentTwoAmount, setTentTwoAmount] = useState(0);
   const [tentThreeAmount, setTentThreeAmount] = useState(0);
   const [greenChecked, setGreenChecked] = useState(false);
-  const [people, setPeople] = useState([]);
-  const [amount, setAmount] = useState([]);
+  /*   const [people, setPeople] = useState([]);
+   */ const [amount, setAmount] = useState([]);
 
   const ticketData = {
-    vipTickets: vipAmount,
-    standardTickets: standAmount,
     campingArea: chosenArea,
     twoPersTent: tentTwoAmount,
     threePersTent: tentThreeAmount,
     greenCamping: greenChecked,
-    people: JSON.stringify(people),
+    tickets: JSON.stringify(amount),
   };
 
   let headersList = {
@@ -92,7 +90,7 @@ console.log(data); */
               setGreenChecked={setGreenChecked}
             />
           ) : pageView === 4 ? (
-            <PersonalInfo setPeople={setPeople} amount={amount} />
+            <PersonalInfo setAmount={setAmount} amount={amount} />
           ) : pageView === 5 ? (
             <PaymentInfo />
           ) : (
