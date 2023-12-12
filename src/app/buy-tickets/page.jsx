@@ -18,6 +18,10 @@ function BuyTickets() {
   const [people, setPeople] = useState([]);
   const [amount, setAmount] = useState(0);
 
+  const addPersonData = (personData) => {
+    setPeople((prevPeople) => [...prevPeople, personData]);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -49,7 +53,7 @@ function BuyTickets() {
               setGreenChecked={setGreenChecked}
             />
           ) : pageView === 4 ? (
-            <PersonalInfo amount={amount} />
+            <PersonalInfo amount={amount} addPersonData={addPersonData} />
           ) : pageView === 5 ? (
             <PaymentInfo />
           ) : null}
