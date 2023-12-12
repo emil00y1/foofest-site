@@ -2,7 +2,7 @@ import Divider from "./Divider";
 
 function Footer() {
   return (
-    <footer className="flex flex-col m-6">
+    <footer className="flex flex-col m-6 mt-auto">
       <Divider />
       <a className="p-3 text-center" href="mailto:contact@foofest.com">
         contact@foofest.com
@@ -11,13 +11,7 @@ function Footer() {
       <div className="flex justify-between mt-8">
         <p className="self-end">© FOOFEST</p>
         <div className="flex">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="34"
-            height="34"
-            viewBox="0 0 34 34"
-            fill="none"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -31,25 +25,13 @@ function Footer() {
               fill="#F3F3F3"
             />
           </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="31"
-            height="32"
-            viewBox="0 0 31 32"
-            fill="none"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="31" height="32" viewBox="0 0 31 32" fill="none">
             <path
               d="M23.3992 8.012C22.0076 7.07543 21.0033 5.57691 20.6899 3.83003C20.6223 3.45261 20.5851 3.06418 20.5851 2.66675H16.1438L16.1367 21.04C16.062 23.0975 14.4215 24.7489 12.4105 24.7489C11.7854 24.7489 11.1969 24.5876 10.6787 24.3061C9.49035 23.6606 8.67712 22.3748 8.67712 20.8952C8.67712 18.7701 10.352 17.0412 12.4105 17.0412C12.7947 17.0412 13.1633 17.1066 13.512 17.2194V12.5391C13.1512 12.4884 12.7846 12.4566 12.4105 12.4566C7.90288 12.4566 4.23584 16.2422 4.23584 20.8952C4.23584 23.75 5.61761 26.2764 7.72564 27.804C9.05345 28.7663 10.6686 29.3334 12.4105 29.3334C16.918 29.3334 20.5851 25.5481 20.5851 20.8952V11.5783C22.327 12.8689 24.4612 13.6294 26.764 13.6294V9.04488C25.5235 9.04488 24.3681 8.66419 23.3992 8.012Z"
               fill="#F3F3F3"
             />
           </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <path
               d="M29.3334 16.081C29.3334 8.67208 23.3645 2.66675 16.0001 2.66675C8.63564 2.66675 2.66675 8.67208 2.66675 16.081C2.66675 22.7779 7.54142 28.3272 13.9165 29.3334V19.9592H10.5316V16.0801H13.9165V13.1254C13.9165 9.76364 15.9067 7.90586 18.953 7.90586C20.4107 7.90586 21.9379 8.16808 21.9379 8.16808V11.4694H20.2552C18.5992 11.4694 18.0836 12.5041 18.0836 13.5654V16.081H21.7814L21.1903 19.9583H18.0836V29.3334C24.4587 28.3272 29.3334 22.7779 29.3334 16.081Z"
               fill="#F3F3F3"
