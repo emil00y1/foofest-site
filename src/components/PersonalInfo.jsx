@@ -30,7 +30,7 @@ function PersonalInfo({ amount, addPersonData }) {
           {Array.from(Array(amount), (element, index) => (
             <div className="flex flex-col gap-5" key={index}>
               <div>
-                <p className="text-xl">Ticket {index}</p>
+                <p className="text-xl">Ticket {index + 1}</p>
                 <p className="text-sm opacity-70">Standard ticket</p>
               </div>
               <fieldset className="flex flex-col gap-2">
