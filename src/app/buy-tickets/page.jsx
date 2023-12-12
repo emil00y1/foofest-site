@@ -1,5 +1,6 @@
 "use client";
-
+import { View } from "react-native";
+import PaginationDot from "react-native-animated-pagination-dot";
 import CampingAreas from "@/components/CampingAreas";
 import CampingPreference from "@/components/CampingPreference";
 import { Button } from "@/components/ui/button";
@@ -28,7 +29,11 @@ function BuyTickets() {
           ) : pageView === 5 ? (
             <PaymentInfo />
           ) : null}
-
+          <PaginationDot
+            activeDotColor={"black"}
+            curPage={pageView}
+            maxPage={6}
+          />
           {pageView < 6 ? (
             <Button
               variant="outline"
