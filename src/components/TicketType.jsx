@@ -6,6 +6,8 @@ import Divider from "./Divider";
 import Headline from "./Headline";
 
 function TicketType({
+  setErrorMsg,
+  errorMsg,
   standAmount,
   setStandAmount,
   vipAmount,
@@ -37,12 +39,14 @@ function TicketType({
       <div className="flex">
         Number of tickets{" "}
         <NumberInput
+          setErrorMsg={setErrorMsg}
           setStandAmount={setStandAmount}
           setVipAmount={setVipAmount}
           amount={amount}
           setAmount={setAmount}
         />
       </div>
+      <p>{errorMsg}</p>
       {amount.map((ticketOption, index) => (
         <TicketOptions
           amount={amount}
