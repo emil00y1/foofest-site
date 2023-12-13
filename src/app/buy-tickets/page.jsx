@@ -25,7 +25,7 @@ function BuyTickets() {
     twoPersTent: tentTwoAmount,
     threePersTent: tentThreeAmount,
     greenCamping: greenChecked,
-    people: JSON.stringify(amount),
+    tickets: JSON.stringify(amount),
   };
 
   let headersList = {
