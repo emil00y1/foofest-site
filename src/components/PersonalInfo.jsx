@@ -95,7 +95,7 @@ function PersonalInfo({
         />
         <Label>Accept terms and conditions</Label>
       </div>
-      {acceptedTerms ? <p>{termsError}</p> : null}{" "}
+      {!acceptedTerms ? <p>{termsError}</p> : null}
     </>
   );
 }
