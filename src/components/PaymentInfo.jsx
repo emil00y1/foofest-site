@@ -1,11 +1,28 @@
+"use client";
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 import Divider from "./Divider";
 import FormCard from "./FormCard";
+import { useState } from "react";
 
-function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThreeAmount, greenChecked }) {
+function PaymentInfo({
+  amount,
+  vipPrice,
+  standardPrice,
+  tentTwoAmount,
+  tentThreeAmount,
+  greenChecked,
+}) {
+  const [name, setName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [exp, setExp] = useState("");
+  const [cvcData, setCvcData] = useState("");
+  const [address, setAddress] = useState("");
+  const [zip, setZip] = useState("");
+  const [city, setCity] = useState("");
+
   let vipAmount = amount.reduce((count, ticket) => {
     if (ticket.vip) {
       return count + 1;
@@ -19,9 +36,25 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
     return count;
   }, 0);
 
+  const handleChange = (e) => {
+    e.target.id === "addressline1"
+      ? setAddress(e.target.value)
+      : e.target.id === "zipcode"
+      ? setZip(e.target.value)
+      : e.target.id === "city"
+      ? setCity(e.target.value)
+      : null;
+  };
+
   const greenPrice = greenChecked === true ? 249 : 0;
 
-  const totalPrice = vipAmount * vipPrice + standardAmount * standardPrice + tentTwoAmount * 299 + tentThreeAmount * 399 + greenPrice + 99;
+  const totalPrice =
+    vipAmount * vipPrice +
+    standardAmount * standardPrice +
+    tentTwoAmount * 299 +
+    tentThreeAmount * 399 +
+    greenPrice +
+    99;
 
   const tax = Math.round(totalPrice * 0.2 * 100) / 100;
 
@@ -32,7 +65,12 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
           <div>
             <h2 className="text-xl">Payment card</h2>
           </div>
-          <FormCard></FormCard>
+          <FormCard
+            setName={setName}
+            setCardNumber={setCardNumber}
+            setExp={setExp}
+            setCvcData={setCvcData}
+          />
 
           <div>
             <h2 className="text-xl">Invoice address</h2>
@@ -40,7 +78,7 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
           <fieldset className="flex flex-col gap-2">
             <div>
               <Label htmlFor="addressline1">Address line 1</Label>
-              <Input type="text" id="addressline1" />
+              <Input type="text" id="addressline1" onChange={handleChange} />
             </div>
             <div>
               <Label htmlFor="addressline2">Address line 2</Label>
@@ -49,11 +87,11 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
             <div className="flex gap-5">
               <div>
                 <Label htmlFor="zipcode">ZIP CODE</Label>
-                <Input type="number" id="zipcode" />
+                <Input type="number" id="zipcode" onChange={handleChange} />
               </div>
               <div>
                 <Label htmlFor="city">CITY</Label>
-                <Input type="number" id="city" />
+                <Input type="text" id="city" onChange={handleChange} />
               </div>
             </div>
           </fieldset>
