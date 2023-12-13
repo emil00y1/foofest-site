@@ -1,15 +1,7 @@
 import { useState } from "react";
 import RadioSwitch from "./RadioSwitch";
 
-function TicketOptions({
-  ticket,
-  setVipAmount,
-  setStandAmount,
-  vip,
-  amount,
-  setAmount,
-  ticketIndex,
-}) {
+function TicketOptions({ ticket, setVipAmount, setStandAmount, vip, amount, setAmount, ticketIndex }) {
   const [checked, setChecked] = useState("Standard");
 
   let price = () => {
@@ -21,7 +13,7 @@ function TicketOptions({
   };
 
   return (
-    <div className="flex gap-10">
+    <div className="flex justify-between">
       <p>
         Ticket {ticket} - {price()}
       </p>

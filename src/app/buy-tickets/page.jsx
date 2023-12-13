@@ -91,11 +91,7 @@ console.log(data); */
               standardPrice={standardPrice}
             />
           ) : pageView === 2 ? (
-            <CampingAreas
-              chosenArea={chosenArea}
-              setChosenArea={setChosenArea}
-              setErrorMsg={setErrorMsg}
-            />
+            <CampingAreas chosenArea={chosenArea} setChosenArea={setChosenArea} setErrorMsg={setErrorMsg} errorMsg={errorMsg} />
           ) : pageView === 3 ? (
             <CampingPreference
               tentTwoAmount={tentTwoAmount}
@@ -106,24 +102,9 @@ console.log(data); */
               setGreenChecked={setGreenChecked}
             />
           ) : pageView === 4 ? (
-            <PersonalInfo
-              acceptedTerms={acceptedTerms}
-              termsError={termsError}
-              setAcceptedTerms={setAcceptedTerms}
-              setAmount={setAmount}
-              amount={amount}
-              errorMsg={errorMsg}
-              pageView={pageView}
-            />
+            <PersonalInfo acceptedTerms={acceptedTerms} termsError={termsError} setAcceptedTerms={setAcceptedTerms} setAmount={setAmount} amount={amount} errorMsg={errorMsg} pageView={pageView} />
           ) : pageView === 5 ? (
-            <PaymentInfo
-              amount={amount}
-              vipPrice={vipPrice}
-              standardPrice={standardPrice}
-              tentTwoAmount={tentTwoAmount}
-              tentThreeAmount={tentThreeAmount}
-              greenChecked={greenChecked}
-            />
+            <PaymentInfo amount={amount} vipPrice={vipPrice} standardPrice={standardPrice} tentTwoAmount={tentTwoAmount} tentThreeAmount={tentThreeAmount} greenChecked={greenChecked} />
           ) : (
             <Confirmation />
           )}
@@ -136,13 +117,7 @@ console.log(data); */
                   setPageView((o) => o - 1);
                 }}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="26"
-                  height="18"
-                  viewBox="0 0 26 18"
-                  fill="none"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
                   <path
                     d="M8.71967 1.21967C9.01256 0.926777 9.48744 0.926777 9.78033 1.21967C10.0407 1.48002 10.0696 1.88416 9.86711 2.17646L9.78033 2.28033L3.559 8.5L24.25 8.5C24.6642 8.5 25 8.83579 25 9.25C25 9.66421 24.6642 10 24.25 10L3.5605 10L9.78033 16.2197C10.0732 16.5126 10.0732 16.9874 9.78033 17.2803C9.48744 17.5732 9.01256 17.5732 8.71967 17.2803L1.21967 9.78033L1.16344 9.71749V9.71749L1.10012 9.62465V9.62465L1.03727 9.48402L1.00817 9.3611V9.3611L1.00273 9.31422V9.31422L1.00017 9.23419C1.00083 9.2024 1.00351 9.17064 1.00819 9.13912L1 9.25L1.00423 9.16986V9.16986L1.02441 9.05974V9.05974L1.03727 9.01587L1.08521 8.90236V8.90236L1.15225 8.79686V8.79686L1.21967 8.71967V8.71967L8.71967 1.21967Z"
                     fill="#FEC90D"
@@ -152,15 +127,7 @@ console.log(data); */
               </Button>
             ) : null}
             {pageView < 5 ? (
-              <NextBtn
-                setTermsError={setTermsError}
-                acceptedTerms={acceptedTerms}
-                amount={amount}
-                setPageView={setPageView}
-                pageView={pageView}
-                setErrorMsg={setErrorMsg}
-                chosenArea={chosenArea}
-              />
+              <NextBtn setTermsError={setTermsError} acceptedTerms={acceptedTerms} amount={amount} setPageView={setPageView} pageView={pageView} setErrorMsg={setErrorMsg} chosenArea={chosenArea} />
             ) : pageView === 5 ? (
               <Button
                 className="p-5 text-background gap-4 text-xl uppercase hover:bg-yellowaccent hover:text-background group"
