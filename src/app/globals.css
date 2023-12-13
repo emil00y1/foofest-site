@@ -27,9 +27,9 @@
   }
 } */
 
-body * {
+/* body * {
   color: hsl(var(--foreground));
-}
+} */
 
 /* nav {
   background-color: hsl(var(--extra-dark));
@@ -38,6 +38,7 @@ body * {
 body {
   background-color: hsl(var(--background));
   min-height: 100vh;
+  color: hsl(var(--foreground));
 }
 
 header {
@@ -45,5 +46,8 @@ header {
 }
 
 .radio-label:has(input:checked) {
-  border: 2px solid teal;
+  border: 2px solid hsl(var(--primary));
+}
+.radio-label:has(input:focus) {
+  outline-color: #db2777;
 }
