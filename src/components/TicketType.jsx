@@ -5,7 +5,18 @@ import { useState } from "react";
 import Divider from "./Divider";
 import Headline from "./Headline";
 
-function TicketType({ standAmount, setStandAmount, vipAmount, setVipAmount, amount, setAmount, vipPrice, standardPrice }) {
+function TicketType({
+  standAmount,
+  setStandAmount,
+  vipAmount,
+  setVipAmount,
+  amount,
+  setAmount,
+  vipPrice,
+  standardPrice,
+  setErrorMsg,
+  errorMsg,
+}) {
   let ticketCounter = 1;
 
   function totalPrice(tickets) {
@@ -25,8 +36,16 @@ function TicketType({ standAmount, setStandAmount, vipAmount, setVipAmount, amou
   return (
     <>
       <div className="flex">
-        Number of tickets <NumberInput setStandAmount={setStandAmount} setVipAmount={setVipAmount} amount={amount} setAmount={setAmount} />
+        Number of tickets{" "}
+        <NumberInput
+          setErrorMsg={setErrorMsg}
+          setStandAmount={setStandAmount}
+          setVipAmount={setVipAmount}
+          amount={amount}
+          setAmount={setAmount}
+        />
       </div>
+      <p>{errorMsg}</p>
       {amount.map((ticketOption, index) => (
         <TicketOptions
           amount={amount}

@@ -4,7 +4,15 @@ import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-function PersonalInfo({ amount, setAmount }) {
+function PersonalInfo({
+  amount,
+  setAmount,
+  errorMsg,
+  pageView,
+  setAcceptedTerms,
+  acceptedTerms,
+  termsError,
+}) {
   const handleChange = (index) => (e) => {
     const name = e.target.name.split("-")[0];
     const updatedTickets = [...amount];
@@ -38,6 +46,7 @@ function PersonalInfo({ amount, setAmount }) {
                       value={ticket.firstname}
                       onChange={handleChange(index)}
                     />
+                    {ticket.firstname === "" ? <p>{errorMsg}</p> : null}
                   </div>
                   <div>
                     <Label htmlFor={"surname" + index}>Surname</Label>
@@ -48,6 +57,7 @@ function PersonalInfo({ amount, setAmount }) {
                       value={ticket.surname}
                       onChange={handleChange(index)}
                     />
+                    {ticket.surname === "" ? <p>{errorMsg}</p> : null}
                   </div>
                 </div>
                 <div>
@@ -59,6 +69,7 @@ function PersonalInfo({ amount, setAmount }) {
                     value={ticket.email}
                     onChange={handleChange(index)}
                   />
+                  {ticket.email === "" ? <p>{errorMsg}</p> : null}
                 </div>
                 <div>
                   <Label htmlFor={"phone" + index}>Phone</Label>
@@ -69,6 +80,7 @@ function PersonalInfo({ amount, setAmount }) {
                     value={ticket.phone}
                     onChange={handleChange(index)}
                   />
+                  {ticket.phone === "" ? <p>{errorMsg}</p> : null}
                 </div>
               </fieldset>
             </div>
@@ -76,9 +88,14 @@ function PersonalInfo({ amount, setAmount }) {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <Checkbox required />
+        <Checkbox
+          onCheckedChange={() => {
+            setAcceptedTerms((old) => !old);
+          }}
+        />
         <Label>Accept terms and conditions</Label>
       </div>
+      {acceptedTerms ? <p>{termsError}</p> : null}{" "}
     </>
   );
 }

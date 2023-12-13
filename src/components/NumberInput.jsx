@@ -1,6 +1,12 @@
 "use client";
 
-function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
+function NumberInput({
+  setAmount,
+  amount,
+  setStandAmount,
+  setVipAmount,
+  setErrorMsg,
+}) {
   return (
     <>
       <div className="flex border-2 border-foreground inline p-1.5 rounded-md">
@@ -31,6 +37,7 @@ function NumberInput({ setAmount, amount, setStandAmount, setVipAmount }) {
 
         <button
           onClick={() => {
+            setErrorMsg("");
             setAmount((old) =>
               old.concat({
                 firstname: "",

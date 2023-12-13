@@ -9,15 +9,19 @@ import { useState } from "react";
 import Headline from "@/components/Headline";
 import Confirmation from "@/components/Confirmation";
 import { Progress } from "@/components/ui/progress";
+import NextBtn from "@/components/NextBtn";
 
 function BuyTickets() {
   const [pageView, setPageView] = useState(1);
   const [vipAmount, setVipAmount] = useState(0);
   const [standAmount, setStandAmount] = useState(0);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [chosenArea, setChosenArea] = useState("");
   const [tentTwoAmount, setTentTwoAmount] = useState(0);
   const [tentThreeAmount, setTentThreeAmount] = useState(0);
   const [greenChecked, setGreenChecked] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [termsError, setTermsError] = useState("");
   /*   const [people, setPeople] = useState([]);
    */ const [amount, setAmount] = useState([]);
 
@@ -75,6 +79,8 @@ console.log(data); */
         <form onSubmit={handleSubmit}>
           {pageView === 1 ? (
             <TicketType
+              setErrorMsg={setErrorMsg}
+              errorMsg={errorMsg}
               amount={amount}
               setAmount={setAmount}
               standAmount={standAmount}
@@ -85,7 +91,10 @@ console.log(data); */
               standardPrice={standardPrice}
             />
           ) : pageView === 2 ? (
-            <CampingAreas chosenArea={chosenArea} setChosenArea={setChosenArea} />
+            <CampingAreas
+              chosenArea={chosenArea}
+              setChosenArea={setChosenArea}
+            />
           ) : pageView === 3 ? (
             <CampingPreference
               tentTwoAmount={tentTwoAmount}
@@ -96,9 +105,24 @@ console.log(data); */
               setGreenChecked={setGreenChecked}
             />
           ) : pageView === 4 ? (
-            <PersonalInfo setAmount={setAmount} amount={amount} />
+            <PersonalInfo
+              acceptedTerms={acceptedTerms}
+              termsError={termsError}
+              setAcceptedTerms={setAcceptedTerms}
+              setAmount={setAmount}
+              amount={amount}
+              errorMsg={errorMsg}
+              pageView={pageView}
+            />
           ) : pageView === 5 ? (
-            <PaymentInfo amount={amount} vipPrice={vipPrice} standardPrice={standardPrice} tentTwoAmount={tentTwoAmount} tentThreeAmount={tentThreeAmount} greenChecked={greenChecked} />
+            <PaymentInfo
+              amount={amount}
+              vipPrice={vipPrice}
+              standardPrice={standardPrice}
+              tentTwoAmount={tentTwoAmount}
+              tentThreeAmount={tentThreeAmount}
+              greenChecked={greenChecked}
+            />
           ) : (
             <Confirmation />
           )}
@@ -111,7 +135,13 @@ console.log(data); */
                   setPageView((o) => o - 1);
                 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="18"
+                  viewBox="0 0 26 18"
+                  fill="none"
+                >
                   <path
                     d="M8.71967 1.21967C9.01256 0.926777 9.48744 0.926777 9.78033 1.21967C10.0407 1.48002 10.0696 1.88416 9.86711 2.17646L9.78033 2.28033L3.559 8.5L24.25 8.5C24.6642 8.5 25 8.83579 25 9.25C25 9.66421 24.6642 10 24.25 10L3.5605 10L9.78033 16.2197C10.0732 16.5126 10.0732 16.9874 9.78033 17.2803C9.48744 17.5732 9.01256 17.5732 8.71967 17.2803L1.21967 9.78033L1.16344 9.71749V9.71749L1.10012 9.62465V9.62465L1.03727 9.48402L1.00817 9.3611V9.3611L1.00273 9.31422V9.31422L1.00017 9.23419C1.00083 9.2024 1.00351 9.17064 1.00819 9.13912L1 9.25L1.00423 9.16986V9.16986L1.02441 9.05974V9.05974L1.03727 9.01587L1.08521 8.90236V8.90236L1.15225 8.79686V8.79686L1.21967 8.71967V8.71967L8.71967 1.21967Z"
                     fill="#FEC90D"
@@ -129,7 +159,13 @@ console.log(data); */
                 }}
               >
                 Next
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24" fill="none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="24"
+                  viewBox="0 0 26 24"
+                  fill="none"
+                >
                   <path
                     d="M17.2803 20.7803C16.9874 21.0732 16.5126 21.0732 16.2197 20.7803C15.9593 20.52 15.9304 20.1158 16.1329 19.8235L16.2197 19.7197L22.441 13.5L1.75 13.5C1.33579 13.5 0.999999 13.1642 0.999999 12.75C0.999999 12.3358 1.33579 12 1.75 12L22.4395 12L16.2197 5.78033C15.9268 5.48744 15.9268 5.01256 16.2197 4.71967C16.5126 4.42678 16.9874 4.42678 17.2803 4.71967L24.7803 12.2197L24.8366 12.2825L24.8999 12.3754L24.9627 12.516L24.9918 12.6389L24.9973 12.6858L24.9998 12.7658C24.9992 12.7976 24.9965 12.8294 24.9918 12.8609L25 12.75L24.9958 12.8301L24.9756 12.9403L24.9627 12.9841L24.9148 13.0976L24.8477 13.2031L24.7803 13.2803L17.2803 20.7803Z"
                     fill="#222"
