@@ -149,6 +149,7 @@ console.log(data); */
                 className="p-5 border-yellowaccent"
                 onClick={() => {
                   setPageView((o) => o - 1);
+                  setErrorMsg("");
                 }}
               >
                 <svg
