@@ -65,11 +65,7 @@ function Lineup() {
   return (
     <main>
       <Headline>Lineup</Headline>
-      <LineupNav
-        stages={stages}
-        setSelectedDay={setSelectedDay}
-        setSelectedStage={setSelectedStage}
-      ></LineupNav>
+      <LineupNav stages={stages} setSelectedDay={setSelectedDay} setSelectedStage={setSelectedStage} selectedDay={selectedDay} selectedStage={selectedStage}></LineupNav>
       <section className="p-3">
         {bandData.length > 0 ? (
           bands.map((band) => {
@@ -80,23 +76,12 @@ function Lineup() {
               return null;
             }
 
-            const matchingBand = bandData.find(
-              (bandData) => bandData.name === artistName
-            );
+            const matchingBand = bandData.find((bandData) => bandData.name === artistName);
 
             // Check if matchingBand is not undefined before accessing its properties
             const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
 
-            return (
-              <ArtistCard
-                imageSrc={matchingPhotoUrl}
-                act={band.act}
-                start={band.start}
-                end={band.end}
-                key={band.act}
-                slug={matchingBand.slug}
-              ></ArtistCard>
-            );
+            return <ArtistCard imageSrc={matchingPhotoUrl} act={band.act} start={band.start} end={band.end} key={band.act} slug={matchingBand.slug}></ArtistCard>;
           })
         ) : (
           <p>No band data available</p>
