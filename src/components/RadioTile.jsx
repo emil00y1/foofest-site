@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 function RadioTile({
   area,
   availableSpots,
@@ -8,6 +7,7 @@ function RadioTile({
   chosenArea,
   setErrorMsg,
   amount,
+  img,
 }) {
   const [isAreaChecked, setIsAreaChecked] = useState(false);
 
@@ -19,7 +19,13 @@ function RadioTile({
   return (
     <label
       htmlFor={area}
-      className={`radio-label cursor-pointer p-5 first:has(checked):border-yellowaccent first:has(disabled):border-red-600 w-full border-forground border-2 rounded-md flex items-center bg-[url('/img/nilfheim.png')] bg-right bg-contain bg-no-repeat`}
+      className={`radio-label cursor-pointer p-5 first:has(checked):border-yellowaccent first:has(disabled):border-red-600 w-full border-foreground border-2 rounded-md flex items-center bg-right bg-contain bg-no-repeat`}
+      style={{
+        backgroundImage: `url('/img/${img}')`,
+        backgroundPosition: "right",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <input
         disabled={amount.length > availableSpots}
