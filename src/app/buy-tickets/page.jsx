@@ -107,6 +107,7 @@ console.log(data); */
               setChosenArea={setChosenArea}
               setErrorMsg={setErrorMsg}
               errorMsg={errorMsg}
+              amount={amount}
             />
           ) : pageView === 3 ? (
             <CampingPreference
