@@ -35,8 +35,8 @@ function RadioTile({
 
         <span className="block info">
           {amount.length > availableSpots
-            ? "Not enough"
-            : `${availableSpots}/${spots}`}{" "}
+            ? "Not enough "
+            : `${availableSpots}/${spots} `}
           spots left
         </span>
       </span>

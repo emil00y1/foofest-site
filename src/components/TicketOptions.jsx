@@ -1,29 +1,26 @@
 import { useState } from "react";
 import RadioSwitch from "./RadioSwitch";
 
-function TicketOptions({ ticket, setVipAmount, setStandAmount, vip, amount, setAmount, ticketIndex }) {
+function TicketOptions({
+  ticket,
+  setVipAmount,
+  setStandAmount,
+  vip,
+  amount,
+  setAmount,
+  ticketIndex,
+}) {
   const [checked, setChecked] = useState("Standard");
-
-  let price = () => {
-    if (checked === "Standard") {
-      return "799.00";
-    } else if (checked === "VIP") {
-      return "1,299.00";
-    }
-  };
 
   return (
     <div className="flex justify-between">
       <p>
-        Ticket {ticket} - {price()}
+        Ticket {ticket} - {amount[ticketIndex].vip ? "1299.00" : "799.00"}
       </p>
       <RadioSwitch
         amount={amount}
         setAmount={setAmount}
-        /*  setVipAmount={setVipAmount}
-        setStandAmount={setStandAmount}
-        setChecked={setChecked} */
-        ticketIndex={ticketIndex} //
+        ticketIndex={ticketIndex}
         ticket={ticket}
         checked={checked === "Standard" ? "Standard" : "VIP"}
         vip={vip}

@@ -1,15 +1,4 @@
-function RadioSwitch({
-  vip,
-  ticket,
-  setChecked,
-  checked,
-  setPrice,
-  setVipAmount,
-  setStandAmount,
-  amount,
-  setAmount,
-  ticketIndex,
-}) {
+function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
   const toggleVipStatus = (newVipStatus) => {
     const updatedAmount = amount.map((item, index) => {
       if (index === ticketIndex) {
@@ -39,11 +28,6 @@ function RadioSwitch({
               className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
                 toggleVipStatus(false);
-                /*   setChecked("Standard");
-                if (checked === "VIP") {
-                  setStandAmount((old) => old + 1);
-                  setVipAmount((old) => (old > 0 ? old - 1 : 0));
-                } */
               }}
             >
               Standard
@@ -63,11 +47,6 @@ function RadioSwitch({
               className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
                 toggleVipStatus(true);
-                /*  setChecked("VIP");
-                if (checked === "Standard") {
-                  setStandAmount((old) => (old > 0 ? old - 1 : 0));
-                  setVipAmount((old) => old + 1);
-                } */
               }}
             >
               VIP
