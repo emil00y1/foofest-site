@@ -25,7 +25,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
             />
             <label
               htmlFor={ticket + "standard"}
-              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
+              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
                 toggleVipStatus(false);
               }}
@@ -44,7 +44,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
             />
             <label
               htmlFor={ticket + "vip"}
-              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-orange-700 peer-focus-visible:ring-offset-2 p-1.5"
+              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5"
               onClick={() => {
                 toggleVipStatus(true);
               }}
