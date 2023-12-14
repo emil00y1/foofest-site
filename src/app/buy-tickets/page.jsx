@@ -24,6 +24,17 @@ function BuyTickets() {
   const [termsError, setTermsError] = useState("");
   /*   const [people, setPeople] = useState([]);
    */ const [amount, setAmount] = useState([]);
+  const [paymentData, setPaymentData] = useState([
+    {
+      cardname: "",
+      cardnumber: "",
+      exdate: "",
+      cvc: "",
+      addressline1: "",
+      zipcode: "",
+      city: "",
+    },
+  ]);
 
   const vipPrice = 1299;
   const standardPrice = 799;
@@ -118,6 +129,9 @@ console.log(data); */
             />
           ) : pageView === 5 ? (
             <PaymentInfo
+              errorMsg={errorMsg}
+              paymentData={paymentData}
+              setPaymentData={setPaymentData}
               amount={amount}
               vipPrice={vipPrice}
               standardPrice={standardPrice}
@@ -152,8 +166,9 @@ console.log(data); */
                 </svg>
               </Button>
             ) : null}
-            {pageView < 5 ? (
+            {pageView < 6 ? (
               <NextBtn
+                paymentData={paymentData}
                 setTermsError={setTermsError}
                 acceptedTerms={acceptedTerms}
                 amount={amount}
@@ -162,16 +177,6 @@ console.log(data); */
                 setErrorMsg={setErrorMsg}
                 chosenArea={chosenArea}
               />
-            ) : pageView === 5 ? (
-              <Button
-                className="p-5 text-background gap-4 text-xl uppercase hover:bg-yellowaccent hover:text-background group"
-                onClick={() => {
-                  console.log("klikket på next");
-                  setPageView((o) => o + 1);
-                }}
-              >
-                CONFIRM PAYMENT
-              </Button>
             ) : null}
           </div>
         </form>

@@ -2,7 +2,15 @@ import { useState, useRef, forwardRef } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
+const FormCard = ({
+  setName,
+  setCardNumber,
+  setExp,
+  setCvcData,
+  setPaymentData,
+  paymentData,
+  errorMsg,
+}) => {
   const [cnr, setCnr] = useState("");
   const [my, setMy] = useState("");
   const [cvc, setCvc] = useState("");
@@ -11,16 +19,13 @@ const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
   const cvcInputRef = useRef(null);
 
   const handleInputChange = (e) => {
-    const { name, value, maxLength } = e.target;
-    e.target.id === "cardname"
-      ? setName(e.target.value)
-      : e.target.id === "cardnumber"
-      ? setCardNumber(e.target.value)
-      : e.target.id === "exdate"
-      ? setExp(e.target.value)
-      : e.target.id === "cvc"
-      ? setCvcData(e.target.value)
-      : null;
+    const { name, id, value, maxLength } = e.target;
+
+    setPaymentData((paymentData) =>
+      paymentData.map((info, index) =>
+        index === 0 ? { ...info, [id]: value } : info
+      )
+    );
 
     if (value.length === maxLength) {
       switch (name) {
@@ -58,6 +63,7 @@ const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
         <div>
           <Label htmlFor="cardname">NAME ON PAYMENT CARD</Label>
           <Input type="text" id="cardname" onChange={handleInputChange} />
+          {paymentData[0].cardname === "" ? <p>{errorMsg}</p> : null}
         </div>
         <div>
           <Label htmlFor="cardnumber">CARDNUMBER</Label>
@@ -69,6 +75,7 @@ const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
             maxLength="16"
             onChange={handleInputChange}
           />
+          {paymentData[0].cardnumber === "" ? <p>{errorMsg}</p> : null}
         </div>
         <div className="flex gap-5">
           <div>
@@ -82,6 +89,7 @@ const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
               onChange={handleInputChange}
               ref={myInputRef}
             />
+            {paymentData[0].exdate === "" ? <p>{errorMsg}</p> : null}
           </div>
           <div>
             <Label htmlFor="cvc">CVC</Label>
@@ -94,6 +102,7 @@ const FormCard = ({ setName, setCardNumber, setExp, setCvcData }) => {
               onChange={handleInputChange}
               ref={cvcInputRef}
             />
+            {paymentData[0].cvc === "" ? <p>{errorMsg}</p> : null}
           </div>
         </div>
       </fieldset>

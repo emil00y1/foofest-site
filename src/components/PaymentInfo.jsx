@@ -14,14 +14,17 @@ function PaymentInfo({
   tentTwoAmount,
   tentThreeAmount,
   greenChecked,
+  setPaymentData,
+  paymentData,
+  errorMsg,
 }) {
-  const [name, setName] = useState("");
+  /*   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [exp, setExp] = useState("");
   const [cvcData, setCvcData] = useState("");
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(""); */
 
   let vipAmount = amount.reduce((count, ticket) => {
     if (ticket.vip) {
@@ -37,13 +40,20 @@ function PaymentInfo({
   }, 0);
 
   const handleChange = (e) => {
-    e.target.id === "addressline1"
+    /*     e.target.id === "addressline1"
       ? setAddress(e.target.value)
       : e.target.id === "zipcode"
       ? setZip(e.target.value)
       : e.target.id === "city"
-      ? setCity(e.target.value)
-      : null;
+      ? setCity(e.target.value) 
+      : null; */
+    const { id, value } = e.target;
+
+    setPaymentData((paymentData) =>
+      paymentData.map((info, index) =>
+        index === 0 ? { ...info, [id]: value } : info
+      )
+    );
   };
 
   const greenPrice = greenChecked === true ? 249 : 0;
@@ -66,10 +76,13 @@ function PaymentInfo({
             <h2 className="text-xl">Payment card</h2>
           </div>
           <FormCard
-            setName={setName}
+            paymentData={paymentData}
+            setPaymentData={setPaymentData}
+            errorMsg={errorMsg}
+            /*             setName={setName}
             setCardNumber={setCardNumber}
             setExp={setExp}
-            setCvcData={setCvcData}
+            setCvcData={setCvcData} */
           />
 
           <div>
@@ -78,7 +91,13 @@ function PaymentInfo({
           <fieldset className="flex flex-col gap-2">
             <div>
               <Label htmlFor="addressline1">Address line 1</Label>
-              <Input type="text" id="addressline1" onChange={handleChange} />
+              <Input
+                type="text"
+                id="addressline1"
+                value={paymentData[0].addressline1}
+                onChange={handleChange}
+              />
+              {paymentData[0].addressline1 === "" ? <p>{errorMsg}</p> : null}
             </div>
             <div>
               <Label htmlFor="addressline2">Address line 2</Label>
@@ -88,10 +107,12 @@ function PaymentInfo({
               <div>
                 <Label htmlFor="zipcode">ZIP CODE</Label>
                 <Input type="number" id="zipcode" onChange={handleChange} />
+                {paymentData[0].zipcode === "" ? <p>{errorMsg}</p> : null}
               </div>
               <div>
                 <Label htmlFor="city">CITY</Label>
                 <Input type="text" id="city" onChange={handleChange} />
+                {paymentData[0].city === "" ? <p>{errorMsg}</p> : null}
               </div>
             </div>
           </fieldset>

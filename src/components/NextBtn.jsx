@@ -9,8 +9,10 @@ function NextBtn({
   chosenArea,
   acceptedTerms,
   setTermsError,
+  paymentData,
 }) {
   const [containsEmptyString, setContainsEmptyString] = useState(false);
+  const [containsEmptyString2, setContainsEmptyString2] = useState(false);
 
   // Update containsEmptyString whenever amount changes
   useEffect(() => {
@@ -18,6 +20,14 @@ function NextBtn({
       amount.some((obj) => Object.values(obj).some((value) => value === ""))
     );
   }, [amount]);
+
+  useEffect(() => {
+    setContainsEmptyString2(
+      paymentData.some((obj) =>
+        Object.values(obj).some((value) => value === "")
+      )
+    );
+  }, [paymentData]);
 
   return (
     <Button
@@ -33,11 +43,13 @@ function NextBtn({
             ? setErrorMsg("Please fill out this field")
             : pageView === 4 && acceptedTerms === false
             ? setTermsError("You must accept the terms")
+            : pageView === 5 && containsEmptyString2
+            ? setErrorMsg("Please fill out this field")
             : setPageView((o) => o + 1);
         }
       }}
     >
-      Next
+      {pageView < 5 ? "Next" : "Confirm"}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="26"
