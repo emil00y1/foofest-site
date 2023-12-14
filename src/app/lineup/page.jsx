@@ -26,18 +26,24 @@ function Lineup() {
   useEffect(() => {
     const x = async () => {
       const data = await fetchScheduleFunc();
-      console.log("artist", data.Midgard.selectedDay);
+
       // Memoize the filtered data function to ensure it's recalculated only when necessary
       const getFilteredData = () => {
-        const filteredData = data[selectedStage][selectedDay];
-        return filteredData;
+        if (selectedStage === "AllStages") {
+          // If selectedStage is "AllStages", consider all stages
+          const allStagesData = Object.values(data).flatMap((stageData) => stageData[selectedDay]);
+          return allStagesData;
+        } else {
+          // Otherwise, filter data based on selectedStage and selectedDay
+          const filteredData = data[selectedStage][selectedDay];
+          return filteredData;
+        }
       };
 
       const bands = getFilteredData();
       setBands(bands);
     };
     x();
-    x;
   }, [selectedDay, selectedStage]);
 
   useEffect(() => {

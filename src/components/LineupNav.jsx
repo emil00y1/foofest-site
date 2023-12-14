@@ -27,11 +27,13 @@ function LineupNav({ stages, setSelectedStage, setSelectedDay, selectedDay, sele
       <div className="flex flex-wrap gap-2 justify-center">
         <Button
           className={`rounded-full py-1.5 px-3.5 h-8 border-yellowaccent hover:bg-amber-200 hover:text-background ${
-            selectedStage === stages ? "bg-yellowaccent text-background" : "bg-background text-yellowaccent"
+            selectedStage === "AllStages" ? "bg-yellowaccent text-background" : "bg-background text-yellowaccent"
           }`}
           variant="outline"
           key="all"
-          onClick={() => {}}
+          onClick={() => {
+            setSelectedStage("AllStages");
+          }}
         >
           All
         </Button>
