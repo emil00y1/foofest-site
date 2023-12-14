@@ -63,7 +63,7 @@ function Lineup() {
 
   console.log("bandData", bandData);
   return (
-    <main>
+    <main className="max-w-7xl md:m-auto">
       <Headline>Lineup</Headline>
       <LineupNav stages={stages} setSelectedDay={setSelectedDay} setSelectedStage={setSelectedStage} selectedDay={selectedDay} selectedStage={selectedStage}></LineupNav>
       <section className="p-3">

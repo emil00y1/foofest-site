@@ -20,7 +20,7 @@ export default function Home() {
           <p className="text-9xl pl-9"> FOOFEST 2024 FOOFEST 2024 FOOFEST 2024</p>
         </Marquee>
       </div>
-      <main className="m-6">
+      <main className="m-6 max-w-7xl md:m-auto">
         <h1 className="text-4xl font-black text-center">MUSIC FESTIVAL</h1>
         <p className="text-3xl font-black text-center">7 DAYS, 24/7</p>
         <div className="flex flex-col gap-4 my-10">
