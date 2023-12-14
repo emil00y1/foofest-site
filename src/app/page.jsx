@@ -24,16 +24,16 @@ export default function Home() {
         <h1 className="text-4xl font-black text-center">MUSIC FESTIVAL</h1>
         <p className="text-3xl font-black text-center">7 DAYS, 24/7</p>
         <div className="flex flex-col gap-4 my-10">
-          <Button className="hover:bg-yellow-300 py-2 w-52 block m-auto">
-            <Link href="/buy-tickets" className="text-background">
+          <Link href="/buy-tickets" className="text-background w-52 m-auto">
+            <Button tabindex="-1" className="hover:bg-amber-200 py-2 w-52 block hover:scale-105 delay-75 button-delay">
               TICKETS
-            </Link>
-          </Button>
-          <Button variant="outline" className="hover:bg-yellow-300 border-yellowaccent text-yellowaccent py-2 w-52 block m-auto">
-            <Link href="/lineup" className="text-yellowaccent">
+            </Button>
+          </Link>
+          <Link href="/lineup" className="text-yellowaccent hover:text-background w-52 m-auto">
+            <Button tabindex="-1" variant="outline" className="hover:bg-amber-200 focus:bg-yellowaccent border-yellowaccent py-2 text-yellowaccent w-52 block hover:scale-105 delay-75 button-delay">
               LINEUP
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
         <article className="flex flex-col gap-3 pb-4">
           <h2 className="font-bold">ABOUT FOOFEST</h2>

@@ -15,7 +15,7 @@ function NumberInput({ tentSpace, setTentTwoAmount, tentTwoAmount, setTentThreeA
         <label htmlFor={tentSpace} className="w-0 h-0 opacity-0">
           {label}
         </label>
-        <input className="bg-background border-1 w-14 text-center" id={tentSpace} type="number" readOnly value={amount} />
+        <input className="bg-background border-1 w-14 text-center" id={tentSpace} type="number" readOnly value={amount} tabindex="-1" />
 
         <button
           onClick={() => {

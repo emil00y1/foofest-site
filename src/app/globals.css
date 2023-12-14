@@ -51,3 +51,7 @@ header {
 .radio-label:has(input:focus) {
   outline-color: #db2777;
 }
+
+.button-delay:hover {
+  transition: ease-in-out 0.15s;
+}
