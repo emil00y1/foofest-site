@@ -58,3 +58,15 @@ header {
 .button-delay:hover {
   transition: ease-in-out 0.15s;
 }
+
+@media (max-width: 768px) {
+  div {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  div::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+}
