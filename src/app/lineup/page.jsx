@@ -66,7 +66,7 @@ function Lineup() {
     <main className="max-w-7xl md:m-auto">
       <Headline>Lineup</Headline>
       <LineupNav stages={stages} setSelectedDay={setSelectedDay} setSelectedStage={setSelectedStage} selectedDay={selectedDay} selectedStage={selectedStage}></LineupNav>
-      <section className="p-3 flex flex-col gap-4">
+      <section className="p-3 flex flex-col gap-2 mt-3">
         {bandData.length > 0 ? (
           bands.map((band) => {
             const artistName = band.act;
@@ -80,8 +80,25 @@ function Lineup() {
 
             // Check if matchingBand is not undefined before accessing its properties
             const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
+            const matchingPhotoCredit = matchingBand ? matchingBand.logoCredits : null;
 
-            return <ArtistCard imageSrc={matchingPhotoUrl} act={band.act} start={band.start} end={band.end} key={band.act} slug={matchingBand.slug}></ArtistCard>;
+            const splitCredit = matchingPhotoCredit ? matchingPhotoCredit.split(", https") : [null];
+            const creditText = splitCredit[0];
+            const creditLink = "https" + splitCredit[1];
+
+            return (
+              <ArtistCard
+                imageSrc={matchingPhotoUrl}
+                act={band.act}
+                start={band.start}
+                end={band.end}
+                key={band.act}
+                slug={matchingBand.slug}
+                stage={selectedStage}
+                creditText={creditText}
+                creditLink={creditLink}
+              ></ArtistCard>
+            );
           })
         ) : (
           <p>No band data available</p>
