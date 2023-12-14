@@ -48,6 +48,9 @@ header {
 .radio-label:has(input:checked) {
   border: 2px solid hsl(var(--primary));
 }
+.radio-label:has(input:disabled) {
+  border: 2px solid #dc2626;
+}
 .radio-label:has(input:focus) {
   outline-color: #db2777;
 }

@@ -1,14 +1,6 @@
 import { useState } from "react";
 
-function RadioTile({
-  area,
-  availableSpots,
-  spots,
-  setChosenArea,
-  chosenArea,
-  setErrorMsg,
-  amount,
-}) {
+function RadioTile({ area, availableSpots, spots, setChosenArea, chosenArea, setErrorMsg, amount }) {
   const [isAreaChecked, setIsAreaChecked] = useState(false);
 
   const radioChange = (event) => {
