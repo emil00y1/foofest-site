@@ -7,17 +7,7 @@ import Divider from "./Divider";
 import FormCard from "./FormCard";
 import { useState } from "react";
 
-function PaymentInfo({
-  amount,
-  vipPrice,
-  standardPrice,
-  tentTwoAmount,
-  tentThreeAmount,
-  greenChecked,
-  setPaymentData,
-  paymentData,
-  errorMsg,
-}) {
+function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThreeAmount, greenChecked, setPaymentData, paymentData, errorMsg }) {
   /*   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [exp, setExp] = useState("");
@@ -49,22 +39,12 @@ function PaymentInfo({
       : null; */
     const { id, value } = e.target;
 
-    setPaymentData((paymentData) =>
-      paymentData.map((info, index) =>
-        index === 0 ? { ...info, [id]: value } : info
-      )
-    );
+    setPaymentData((paymentData) => paymentData.map((info, index) => (index === 0 ? { ...info, [id]: value } : info)));
   };
 
   const greenPrice = greenChecked === true ? 249 : 0;
 
-  const totalPrice =
-    vipAmount * vipPrice +
-    standardAmount * standardPrice +
-    tentTwoAmount * 299 +
-    tentThreeAmount * 399 +
-    greenPrice +
-    99;
+  const totalPrice = vipAmount * vipPrice + standardAmount * standardPrice + tentTwoAmount * 299 + tentThreeAmount * 399 + greenPrice + 99;
 
   const tax = Math.round(totalPrice * 0.2 * 100) / 100;
 
@@ -91,12 +71,7 @@ function PaymentInfo({
           <fieldset className="flex flex-col gap-2">
             <div>
               <Label htmlFor="addressline1">Address line 1</Label>
-              <Input
-                type="text"
-                id="addressline1"
-                value={paymentData[0].addressline1}
-                onChange={handleChange}
-              />
+              <Input type="text" id="addressline1" value={paymentData[0].addressline1} onChange={handleChange} />
               {paymentData[0].addressline1 === "" ? <p>{errorMsg}</p> : null}
             </div>
             <div>
