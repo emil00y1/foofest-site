@@ -81,7 +81,7 @@ function Lineup() {
             // Check if matchingBand is not undefined before accessing its properties
             const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
 
-            return <ArtistCard imageSrc={matchingPhotoUrl} act={band.act} start={band.start} end={band.end} key={band.act} slug={matchingBand.slug} stage={selectedStage}></ArtistCard>;
+            return <ArtistCard imageSrc={matchingPhotoUrl} act={band.act} start={band.start} end={band.end} key={band.act} slug={matchingBand.slug}></ArtistCard>;
           })
         ) : (
           <p>No band data available</p>
