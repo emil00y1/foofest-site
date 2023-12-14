@@ -119,6 +119,7 @@ function PaymentInfo({
             </div>
             <div>
               <Label htmlFor="addressline2">Address line 2</Label>
+              <p className="text-xs mb-1 opacity-70">Optional</p>
               <Input type="text" id="addressline2" />
             </div>
             <div className="flex gap-5">
