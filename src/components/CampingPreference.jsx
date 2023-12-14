@@ -33,7 +33,8 @@ function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, s
               </div>
               <p className="mt-4">249.00</p>
             </label>
-            <div className="w-6 h-6 bg-yellowaccent rounded-bl-xl flex peer-checked:bg-blue-600">
+
+            <div className={`w-6 h-6 rounded-bl-xl flex ${greenChecked ? "bg-yellowaccent" : ""}`}>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" viewBox="0 0 13 11" fill="none" className="m-auto">
                 <path
                   d="M11.4859 1.56481C11.64 1.40169 11.8971 1.39435 12.0602 1.5484C12.2052 1.68534 12.2271 1.90371 12.122 2.06511L12.0766 2.12269L5.17035 9.43519C5.02549 9.58858 4.79167 9.603 4.62998 9.48041L4.57304 9.42802L0.91679 5.36552C0.766698 5.19875 0.780217 4.94188 0.946987 4.79179C1.09523 4.65837 1.31465 4.65423 1.467 4.77208L1.52072 4.82198L4.8815 8.55663L11.4859 1.56481Z"
