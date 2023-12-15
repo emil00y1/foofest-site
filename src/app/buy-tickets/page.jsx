@@ -68,23 +68,20 @@ console.log(data); */
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (pageView === 5) {
+    if (pageView === 6) {
       fetch("https://syezauaectamogglkmvc.supabase.co/rest/v1/foofest", {
         method: "POST",
         body: bodyContent,
         headers: headersList,
       });
     }
-    if (pageView === 2) {
+    if (pageView === 3) {
       fetch("http://localhost:8080/reserve-spot", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: {
-          area: "Svartheim",
-          amount: 2,
-        },
+        body: JSON.stringify(reservation),
       })
         .then((response) => console.log(response))
         .catch((err) => console.error(err));
