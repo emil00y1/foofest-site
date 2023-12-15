@@ -33,7 +33,6 @@ function NextBtn({
     <Button
       className="p-5 text-background gap-4 text-xl uppercase w-48  hover:bg-yellowaccent hover:text-background group "
       onClick={() => {
-        console.log("tjek det her", containsEmptyString);
         {
           pageView === 1 && amount.length === 0
             ? setErrorMsg("You must choose at least 1 ticket")
