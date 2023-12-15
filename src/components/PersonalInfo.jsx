@@ -18,7 +18,7 @@ function PersonalInfo({ amount, setAmount, errorMsg, pageView, setAcceptedTerms,
   return (
     <>
       <div className="flex flex-col gap-8 mb-4">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 md:grid grid-cols-2">
           {amount.map((ticket, index) => (
             <div className="flex flex-col gap-5" key={index}>
               <div>
