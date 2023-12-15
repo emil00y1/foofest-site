@@ -50,11 +50,11 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
 
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div>
+        <h2 className="text-xl mb-5">Payment card</h2>
+      </div>
+      <div className="flex flex-col gap-8 md:flex-row">
         <div className="flex flex-col gap-5">
-          <div>
-            <h2 className="text-xl">Payment card</h2>
-          </div>
           <FormCard
             paymentData={paymentData}
             setPaymentData={setPaymentData}
@@ -129,53 +129,55 @@ function PaymentInfo({ amount, vipPrice, standardPrice, tentTwoAmount, tentThree
             </div>
           </fieldset>
         </div>
-        <Divider />
-        {vipAmount > 0 ? (
-          <div className="grid grid-cols-3 gap-6">
-            <p>VIP ticket</p> <p>{vipAmount}</p>
-            <p className="text-right">{vipAmount * vipPrice}.00</p>
-          </div>
-        ) : null}
-        {standardAmount > 0 ? (
-          <div className="grid grid-cols-3 gap-6">
-            <p>Standard ticket</p> <p>{standardAmount}</p>
-            <p className="text-right">{standardAmount * standardPrice}.00</p>
-          </div>
-        ) : null}
-        {tentTwoAmount > 0 ? (
-          <div className="grid grid-cols-3 gap-6">
-            <p>2 person tent</p> <p>{tentTwoAmount}</p>
-            <p className="text-right">{tentTwoAmount * 299}.00</p>
-          </div>
-        ) : null}
-        {tentThreeAmount > 0 ? (
-          <div className="grid grid-cols-3 gap-6">
-            <p>3 person tent</p> <p>{tentThreeAmount}</p>
-            <p className="text-right">{tentThreeAmount * 399}.00</p>
-          </div>
-        ) : null}
-        {greenChecked === true ? (
-          <div className="flex justify-between">
-            <p>Green camping</p>
-            <p>{greenPrice}.00</p>
-          </div>
-        ) : null}
+        <div className="flex flex-col gap-6">
+          <Divider className="md-hidden" />
+          {vipAmount > 0 ? (
+            <div className="grid grid-cols-3 gap-6">
+              <p>VIP ticket</p> <p>{vipAmount}</p>
+              <p className="text-right">{vipAmount * vipPrice}.00</p>
+            </div>
+          ) : null}
+          {standardAmount > 0 ? (
+            <div className="grid grid-cols-3 gap-6">
+              <p>Standard ticket</p> <p>{standardAmount}</p>
+              <p className="text-right">{standardAmount * standardPrice}.00</p>
+            </div>
+          ) : null}
+          {tentTwoAmount > 0 ? (
+            <div className="grid grid-cols-3 gap-6">
+              <p>2 person tent</p> <p>{tentTwoAmount}</p>
+              <p className="text-right">{tentTwoAmount * 299}.00</p>
+            </div>
+          ) : null}
+          {tentThreeAmount > 0 ? (
+            <div className="grid grid-cols-3 gap-6">
+              <p>3 person tent</p> <p>{tentThreeAmount}</p>
+              <p className="text-right">{tentThreeAmount * 399}.00</p>
+            </div>
+          ) : null}
+          {greenChecked === true ? (
+            <div className="flex justify-between">
+              <p>Green camping</p>
+              <p>{greenPrice}.00</p>
+            </div>
+          ) : null}
 
-        <div className="flex justify-between">
-          <p>Booking fee</p>
-          <p>99.00</p>
-        </div>
-        <Divider />
-        <div className="flex justify-between text-sm">
-          <p>25% tax included</p>
-          <p>{tax}</p>
-        </div>
-        <Divider />
-        <div className="flex justify-between text-xl">
-          <p>Total</p>
-          <div className="text-right">
-            <p>DKK</p>
-            <p>{totalPrice}.00</p>
+          <div className="flex justify-between">
+            <p>Booking fee</p>
+            <p>99.00</p>
+          </div>
+          <Divider />
+          <div className="flex justify-between text-sm">
+            <p>25% tax included</p>
+            <p>{tax}</p>
+          </div>
+          <Divider />
+          <div className="flex justify-between text-xl">
+            <p>Total</p>
+            <div className="text-right">
+              <p>DKK</p>
+              <p>{totalPrice}.00</p>
+            </div>
           </div>
         </div>
       </div>

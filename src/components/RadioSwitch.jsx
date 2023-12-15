@@ -18,7 +18,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
             <input defaultChecked={checked === "Standard"} type="radio" name={ticket} id={ticket + "standard"} className="peer h-0 w-0 opacity-0 focus:outline-none" defaultValue="standard" />
             <label
               htmlFor={ticket + "standard"}
-              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:background peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5 peer-checked:text-background"
+              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5 peer-checked:text-background"
               onClick={() => {
                 toggleVipStatus(false);
               }}
@@ -30,7 +30,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
             <input defaultChecked={checked === "VIP"} type="radio" name={ticket} id={ticket + "vip"} className="peer h-0 w-0 opacity-0 focus:outline-none" defaultValue="vip" />
             <label
               htmlFor={ticket + "vip"}
-              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-checked:text-white peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5 peer-checked:text-background"
+              className="cursor-pointer px-4 peer-checked:bg-yellowaccent peer-focus-visible:ring  peer-focus-visible:ring-offset-2 p-1.5 peer-checked:text-background"
               onClick={() => {
                 toggleVipStatus(true);
               }}
