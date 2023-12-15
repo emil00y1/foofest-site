@@ -17,6 +17,8 @@
   --secondary-foreground: 222.2 47.4% 11.2%;
   --ring: 215 20.2% 65.1%;
   --extra-dark: 0, 0%, 11%;
+  --light-grey: 0, 0%, 37%, 1;
+  --dark-white: 0, 0%, 78%, 1;
 }
 
 body {
