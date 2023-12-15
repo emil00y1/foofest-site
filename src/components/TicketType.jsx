@@ -24,7 +24,7 @@ function TicketType({ standAmount, setStandAmount, vipAmount, setVipAmount, amou
 
   return (
     <>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div className="flex justify-between">
           <p>Number of tickets</p> <NumberInput setErrorMsg={setErrorMsg} setStandAmount={setStandAmount} setVipAmount={setVipAmount} amount={amount} setAmount={setAmount} />
         </div>
@@ -54,7 +54,7 @@ function TicketType({ standAmount, setStandAmount, vipAmount, setVipAmount, amou
           />
         ))}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 gap-5 flex flex-col">
         <p className="flex justify-between">
           Booking fee <span>99.00</span>
         </p>

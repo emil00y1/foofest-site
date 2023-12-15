@@ -72,7 +72,7 @@ console.log(data); */
   };
   return (
     <>
-      <main className="m-6 max-w-7xl md:m-auto md:w-[768px]">
+      <main className="m-6 max-w-7xl md:mx-auto md:w-[768px]">
         {pageView === 1 ? (
           <Headline>Choose your tickets</Headline>
         ) : pageView === 2 ? (

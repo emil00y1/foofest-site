@@ -40,13 +40,13 @@ function Header() {
               </svg>
             </div>
             <div className="flex flex-col items-center gap-8 mt-12">
-              <Link className="text-2xl" href="/" onClick={toggleDrawer}>
+              <Link className="text-2xl uppercase" href="/" onClick={toggleDrawer}>
                 Home
               </Link>
-              <Link className="text-2xl" href="/buy-tickets" onClick={toggleDrawer}>
+              <Link className="text-2xl uppercase" href="/buy-tickets" onClick={toggleDrawer}>
                 Tickets
               </Link>
-              <Link className="text-2xl" href="/lineup" onClick={toggleDrawer}>
+              <Link className="text-2xl uppercase" href="/lineup" onClick={toggleDrawer}>
                 Lineup
               </Link>
             </div>
