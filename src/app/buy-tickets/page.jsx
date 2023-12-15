@@ -21,6 +21,7 @@ function BuyTickets() {
   const [tentThreeAmount, setTentThreeAmount] = useState(0);
   const [greenChecked, setGreenChecked] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [reservationId, setReservationId] = useState();
   const [termsError, setTermsError] = useState("");
   /*   const [people, setPeople] = useState([]);
@@ -31,6 +32,7 @@ function BuyTickets() {
       cardname: "",
       cardnumber: "",
       exdate: "",
+      email: "",
       cvc: "",
       addressline1: "",
       zipcode: "",
@@ -172,6 +174,7 @@ console.log(data); */
             />
           ) : pageView === 4 ? (
             <PersonalInfo
+              emailError={emailError}
               acceptedTerms={acceptedTerms}
               termsError={termsError}
               setAcceptedTerms={setAcceptedTerms}
@@ -182,6 +185,7 @@ console.log(data); */
             />
           ) : pageView === 5 ? (
             <PaymentInfo
+              emailError={emailError}
               errorMsg={errorMsg}
               paymentData={paymentData}
               setPaymentData={setPaymentData}
@@ -193,7 +197,7 @@ console.log(data); */
               greenChecked={greenChecked}
             />
           ) : (
-            <Confirmation />
+            <Confirmation paymentData={paymentData} amount={amount} />
           )}
           <div className="flex items-center my-10 justify-center gap-5">
             {pageView < 6 && pageView > 1 ? (
@@ -222,6 +226,7 @@ console.log(data); */
             ) : null}
             {pageView < 6 ? (
               <NextBtn
+                setEmailError={setEmailError}
                 paymentData={paymentData}
                 setTermsError={setTermsError}
                 acceptedTerms={acceptedTerms}

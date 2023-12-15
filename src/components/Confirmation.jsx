@@ -1,13 +1,18 @@
 import Headline from "./Headline";
 
-function Confirmation() {
+function Confirmation({ paymentData, amount }) {
   return (
     <>
       <Headline>Thank you!</Headline>
       <div className="flex flex-col items-center gap-4">
         <p className="text-center">Your order is completed</p>
         <p className="text-center">
-          Your tickets will be sent to your e-mail within a few minutes.
+          A confirmation mail has been sent to {paymentData[0].email}.
+        </p>
+        <p>
+          {amount.length > 1
+            ? "We will send the tickets to the registered ticketholder's e-mail within a few minutes"
+            : "We will send your ticket to your e-mail within a few minutes"}
         </p>
         <svg
           xmlns="http://www.w3.org/2000/svg"

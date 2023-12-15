@@ -10,9 +10,13 @@ function NextBtn({
   acceptedTerms,
   setTermsError,
   paymentData,
+  setEmailError,
 }) {
   const [containsEmptyString, setContainsEmptyString] = useState(false);
   const [containsEmptyString2, setContainsEmptyString2] = useState(false);
+  const [containsValidEmail, setContainsValidEmail] = useState(true);
+  const [containsValidPersonalEmail, setContainsValidPersonalEmail] =
+    useState(true);
 
   // Update containsEmptyString whenever amount changes
   useEffect(() => {
@@ -22,11 +26,21 @@ function NextBtn({
   }, [amount]);
 
   useEffect(() => {
+    const isInvalidEmail = amount.some((obj) => {
+      const email = obj.email;
+      return !(email && email.includes("@") && email.includes("."));
+    });
+    setContainsValidPersonalEmail(!isInvalidEmail);
+  }, [amount]);
+
+  useEffect(() => {
     setContainsEmptyString2(
       paymentData.some((obj) =>
         Object.values(obj).some((value) => value === "")
       )
     );
+    const email = paymentData[0]?.email;
+    setContainsValidEmail(email?.includes("@") && email?.includes("."));
   }, [paymentData]);
 
   return (
@@ -40,11 +54,15 @@ function NextBtn({
             ? setErrorMsg("Select a camping area")
             : pageView === 4 && containsEmptyString
             ? setErrorMsg("Please fill out this field")
+            : pageView === 4 && !containsValidPersonalEmail
+            ? setEmailError("Use a valid e-mail address")
             : pageView === 4 && acceptedTerms === false
             ? setTermsError("You must accept the terms")
             : pageView === 5 && containsEmptyString2
             ? setErrorMsg("Please fill out this field")
-            : (setPageView((o) => o + 1), setErrorMsg(""));
+            : pageView === 5 && !containsValidEmail
+            ? setEmailError("Use a valid e-mail address")
+            : (setPageView((o) => o + 1), setErrorMsg(""), setEmailError(""));
         }
       }}
     >
