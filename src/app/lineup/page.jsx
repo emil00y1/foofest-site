@@ -29,15 +29,21 @@ function Lineup() {
 
       // Memoize the filtered data function to ensure it's recalculated only when necessary
       const getFilteredData = () => {
+        let allStagesData = [];
         if (selectedStage === "AllStages") {
           // If selectedStage is "AllStages", consider all stages
-          const allStagesData = Object.values(data).flatMap((stageData) => stageData[selectedDay]);
-          return allStagesData;
+          Object.entries(data).forEach(([stageName, stageData]) => {
+            stageData[selectedDay].forEach((band) => {
+              allStagesData.push({ ...band, stage: stageName });
+            });
+          });
         } else {
           // Otherwise, filter data based on selectedStage and selectedDay
-          const filteredData = data[selectedStage][selectedDay];
-          return filteredData;
+          data[selectedStage][selectedDay].forEach((band) => {
+            allStagesData.push({ ...band, stage: selectedStage });
+          });
         }
+        return allStagesData;
       };
 
       const bands = getFilteredData();
@@ -71,7 +77,13 @@ function Lineup() {
   return (
     <main className="max-w-7xl md:m-auto">
       <Headline>Lineup</Headline>
-      <LineupNav stages={stages} setSelectedDay={setSelectedDay} setSelectedStage={setSelectedStage} selectedDay={selectedDay} selectedStage={selectedStage}></LineupNav>
+      <LineupNav
+        stages={stages}
+        setSelectedDay={setSelectedDay}
+        setSelectedStage={setSelectedStage}
+        selectedDay={selectedDay}
+        selectedStage={selectedStage}
+      ></LineupNav>
       <section className="p-3 flex flex-col gap-2 mt-3">
         {bandData.length > 0 ? (
           bands.map((band) => {
@@ -82,13 +94,22 @@ function Lineup() {
               return null;
             }
 
-            const matchingBand = bandData.find((bandData) => bandData.name === artistName);
+            const matchingBand = bandData.find(
+              (bandData) => bandData.name === artistName
+            );
+            const extendedMatchingBand = matchingBand
+              ? { ...matchingBand, stage: band.stage }
+              : null;
 
             // Check if matchingBand is not undefined before accessing its properties
             const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
-            const matchingPhotoCredit = matchingBand ? matchingBand.logoCredits : null;
+            const matchingPhotoCredit = matchingBand
+              ? matchingBand.logoCredits
+              : null;
 
-            const splitCredit = matchingPhotoCredit ? matchingPhotoCredit.split(", https") : [null];
+            const splitCredit = matchingPhotoCredit
+              ? matchingPhotoCredit.split(", https")
+              : [null];
             const creditText = splitCredit[0];
             const creditLink = "https" + splitCredit[1];
 
@@ -100,7 +121,7 @@ function Lineup() {
                 end={band.end}
                 key={band.act}
                 slug={matchingBand.slug}
-                stage={selectedStage}
+                stage={extendedMatchingBand.stage}
                 creditText={creditText}
                 creditLink={creditLink}
               ></ArtistCard>
