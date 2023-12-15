@@ -19,7 +19,7 @@ function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, s
           <div className="group border-solid border-2 border-foreground rounded cursor-pointer peer-checked:border-yellowaccent  peer-focus-visible:ring  peer-focus-visible:ring-offset-2  peer-checked:text-yellowaccent flex justify-between">
             <label className="flex flex-col m-2 w-full" htmlFor="greencamping">
               <div className="flex gap-2">
-                ADD GREEN CAMPING
+                Add green camping
                 <Popover>
                   <PopoverTrigger>
                     <svg className="fill-foreground opacity-70" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
@@ -47,14 +47,14 @@ function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, s
         </div>
         <section>
           <article>
-            <p>ADD 2 PERSON TENT</p>
+            <p>Add 2 person tent</p>
             <div className="flex justify-between">
               <p>299.00</p>
               <NumberInput2 setAmount={setTentTwoAmount} amount={tentTwoAmount} label="add 2 person tent" />
             </div>
           </article>
           <article>
-            <p>ADD 3 PERSON TENT</p>
+            <p>Add 3 person tent</p>
             <div className="flex justify-between">
               <p>399.00</p>
               <NumberInput2 tentSpace="1" setAmount={setTentThreeAmount} amount={tentThreeAmount} label="add 3 person tent" />
