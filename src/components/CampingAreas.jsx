@@ -10,6 +10,7 @@ async function fetchFunc() {
 }
 
 function CampingAreas({
+  reservation,
   chosenArea,
   setChosenArea,
   errorMsg,
@@ -52,6 +53,7 @@ function CampingAreas({
       <div className="flex flex-col gap-3">
         {campingArea.map((spot) => (
           <RadioTile
+            reservation={reservation}
             amount={amount}
             setErrorMsg={setErrorMsg}
             key={spot.area}

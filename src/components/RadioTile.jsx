@@ -8,6 +8,7 @@ function RadioTile({
   setErrorMsg,
   amount,
   img,
+  reservation,
 }) {
   const [isAreaChecked, setIsAreaChecked] = useState(false);
 
