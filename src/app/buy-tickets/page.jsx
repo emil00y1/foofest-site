@@ -10,6 +10,7 @@ import Headline from "@/components/Headline";
 import Confirmation from "@/components/Confirmation";
 import { Progress } from "@/components/ui/progress";
 import NextBtn from "@/components/NextBtn";
+import Countdown from "react-countdown";
 
 function BuyTickets() {
   const [pageView, setPageView] = useState(1);
@@ -22,6 +23,7 @@ function BuyTickets() {
   const [greenChecked, setGreenChecked] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [reservationId, setReservationId] = useState();
+  const [reservationTimer, setReservationTimer] = useState();
   const [termsError, setTermsError] = useState("");
   /*   const [people, setPeople] = useState([]);
    */ const [amount, setAmount] = useState([]);
@@ -114,7 +116,9 @@ console.log(data); */
         .then((data) => {
           console.log(data.id);
           setReservationId(data.id);
+          setReservationTimer(data.timeout);
           console.log("første id", reservationId);
+          console.log("timer", data.timeout);
           // Here, 'data' is the actual JSON response
         })
         .catch((err) => console.error(err));
@@ -135,9 +139,10 @@ console.log(data); */
         ) : pageView === 5 ? (
           <Headline>Payment info</Headline>
         ) : null}
-
+        {reservationTimer > 0 ? (
+          <Countdown date={Date.now() + reservationTimer} />
+        ) : null}
         <Progress value={pageView * 16.66} className="mb-6" />
-
         <form onSubmit={handleSubmit}>
           {pageView === 1 ? (
             <TicketType
