@@ -9,7 +9,7 @@ async function fetchFunc() {
   return data;
 }
 
-function CampingAreas({ chosenArea, setChosenArea, errorMsg, setErrorMsg, amount }) {
+function CampingAreas({ reservation, chosenArea, setChosenArea, errorMsg, setErrorMsg, amount }) {
   const [campingArea, setCampingArea] = useState([]);
 
   useEffect(() => {
@@ -40,6 +40,7 @@ function CampingAreas({ chosenArea, setChosenArea, errorMsg, setErrorMsg, amount
       <div className="flex flex-col gap-3">
         {campingArea.map((spot) => (
           <RadioTile
+            reservation={reservation}
             amount={amount}
             setErrorMsg={setErrorMsg}
             key={spot.area}
