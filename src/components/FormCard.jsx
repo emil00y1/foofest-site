@@ -32,17 +32,16 @@ const FormCard = ({
     } else if (name === "my") {
       // Formatting for expiration date
       let numericValue = value.replace(/\D/g, "");
-      if (numericValue.length === 1 && parseInt(numericValue, 10) > 2) {
+      if (numericValue.length === 1 && parseInt(numericValue, 10) >= 2) {
         formattedValue = `0${numericValue}/`;
       } else if (numericValue.length >= 2) {
+        formattedValue = `${numericValue.slice(0, 2)}/${numericValue.slice(
+          2,
+          4
+        )}`;
         if (value.endsWith("/") && numericValue.length === 2) {
           // Allow backspace to remove the slash
-          formattedValue = numericValue.slice(0, 1);
-        } else {
-          formattedValue = `${numericValue.slice(0, 2)}/${numericValue.slice(
-            2,
-            4
-          )}`;
+          formattedValue = numericValue;
         }
       }
       setMy(formattedValue);
