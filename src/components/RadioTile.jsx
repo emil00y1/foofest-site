@@ -1,17 +1,5 @@
 import { useState } from "react";
-function RadioTile({
-  area,
-  availableSpots,
-  spots,
-  setChosenArea,
-  chosenArea,
-  setErrorMsg,
-  amount,
-  img,
-  reservation,
-}) {
-  const [isAreaChecked, setIsAreaChecked] = useState(false);
-
+function RadioTile({ area, availableSpots, spots, setChosenArea, chosenArea, setErrorMsg, amount, img }) {
   const radioChange = (event) => {
     setErrorMsg("");
     setChosenArea(area);
@@ -41,9 +29,7 @@ function RadioTile({
         <span className="block text-lg info">{area}</span>
 
         <span className="block info">
-          {amount.length > availableSpots
-            ? "Not enough "
-            : `${availableSpots}/${spots} `}
+          {amount.length > availableSpots ? "Not enough " : `${availableSpots}/${spots} `}
           spots left
         </span>
       </span>

@@ -1,7 +1,6 @@
 "use client";
 import { React, useEffect, useState } from "react";
 import RadioTile from "@/components/RadioTile";
-import Headline from "./Headline";
 
 async function fetchFunc() {
   const res = await fetch("http://localhost:8080/available-spots");
