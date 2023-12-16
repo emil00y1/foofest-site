@@ -28,9 +28,9 @@ export default async function slug({ params }) {
   const creditLink = "https" + splitCredit[1];
 
   return (
-    <main className="p-6">
+    <main className="p-6 md:mx-auto md:w-[642px]">
       <BreadCrumb name={data.name} />
-      <div className="grid grid-cols-2 my-4">
+      <div className="grid grid-cols-2 my-4 md:flex">
         <div className="max-w-[200px]">
           <Image src={img} alt={data.name} width="200" height="200" className="aspect-square object-cover"></Image>
           <Link href={creditLink} className="text-xs text-lightgrey">
