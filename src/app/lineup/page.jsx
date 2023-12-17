@@ -6,12 +6,12 @@ import ArtistCard from "@/components/ArtistCard";
 import { useState, useEffect } from "react";
 
 async function fetchScheduleFunc() {
-  const res = await fetch("http://localhost:8080/schedule");
+  const res = await fetch("https://stump-impossible-trail.glitch.me/schedule");
   const data = await res.json();
   return data;
 }
 async function fetchBandsFunc() {
-  const res = await fetch("http://localhost:8080/bands");
+  const res = await fetch("https://stump-impossible-trail.glitch.me/bands");
   const data = await res.json();
   return data;
 }
@@ -77,25 +77,41 @@ function Lineup() {
   return (
     <main className="max-w-7xl md:m-auto md:w-[642px]">
       <Headline>Lineup</Headline>
-      <LineupNav stages={stages} setSelectedDay={setSelectedDay} setSelectedStage={setSelectedStage} selectedDay={selectedDay} selectedStage={selectedStage}></LineupNav>
+      <LineupNav
+        stages={stages}
+        setSelectedDay={setSelectedDay}
+        setSelectedStage={setSelectedStage}
+        selectedDay={selectedDay}
+        selectedStage={selectedStage}
+      ></LineupNav>
       <section className="p-3 flex flex-col gap-2 mt-3">
         {bandData.length > 0 ? (
           bands.map((band) => {
+            // Anvendt AI til at lave funktionalitet, der matcher data mellem to url'er
+
             const artistName = band.act;
 
-            // Skip rendering if artistName is "break"
+            //AI: Skip rendering if artistName is "break"
             if (artistName.toLowerCase() === "break") {
               return null;
             }
 
-            const matchingBand = bandData.find((bandData) => bandData.name === artistName);
-            const extendedMatchingBand = matchingBand ? { ...matchingBand, stage: band.stage } : null;
+            const matchingBand = bandData.find(
+              (bandData) => bandData.name === artistName
+            );
+            const extendedMatchingBand = matchingBand
+              ? { ...matchingBand, stage: band.stage }
+              : null;
 
-            // Check if matchingBand is not undefined before accessing its properties
+            //AI: Check if matchingBand is not undefined before accessing its properties
             const matchingPhotoUrl = matchingBand ? matchingBand.logo : null;
-            const matchingPhotoCredit = matchingBand ? matchingBand.logoCredits : null;
+            const matchingPhotoCredit = matchingBand
+              ? matchingBand.logoCredits
+              : null;
 
-            const splitCredit = matchingPhotoCredit ? matchingPhotoCredit.split(", https") : [null];
+            const splitCredit = matchingPhotoCredit
+              ? matchingPhotoCredit.split(", https")
+              : [null];
             const creditText = splitCredit[0];
             const creditLink = "https" + splitCredit[1];
 

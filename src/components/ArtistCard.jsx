@@ -13,7 +13,7 @@ function ArtistCard({
 }) {
   const img = imageSrc.startsWith("https")
     ? imageSrc
-    : "http://localhost:8080/logos/" + imageSrc;
+    : "https://stump-impossible-trail.glitch.me/logos/" + imageSrc;
 
   return (
     <>
