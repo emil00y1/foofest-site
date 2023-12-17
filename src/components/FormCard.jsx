@@ -1,16 +1,8 @@
-import { useState, useRef, forwardRef } from "react";
+import { useState, useRef } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-const FormCard = ({
-  setName,
-  setCardNumber,
-  setExp,
-  setCvcData,
-  setPaymentData,
-  paymentData,
-  errorMsg,
-}) => {
+const FormCard = ({ setPaymentData, paymentData, errorMsg }) => {
   const [cnr, setCnr] = useState("");
   const [my, setMy] = useState("");
   const [cvc, setCvc] = useState("");
@@ -23,14 +15,14 @@ const FormCard = ({
 
     let formattedValue = value;
     if (name === "cnr") {
-      // Formatting for credit card number
+      // AI: Formatting for credit card number
       formattedValue = value
         .replace(/\D/g, "")
         .replace(/(.{4})/g, "$1 ")
         .trim();
       setCnr(formattedValue);
     } else if (name === "my") {
-      // Formatting for expiration date
+      //AI: Formatting for expiration date
       let numericValue = value.replace(/\D/g, "");
       if (numericValue.length === 1 && parseInt(numericValue, 10) >= 2) {
         formattedValue = `0${numericValue}/`;
@@ -56,7 +48,7 @@ const FormCard = ({
       )
     );
 
-    // Adjusted focus logic based on the new value's length
+    //AI: Adjusted focus logic based on the new value's length
     if (name === "cnr" && formattedValue.replace(/\s/g, "").length === 16) {
       myInputRef.current.focus();
     } else if (
@@ -197,7 +189,5 @@ const FormCard = ({
     </>
   );
 };
-
-// Use forwardRef to pass the ref down to the underlying HTML element
 
 export default FormCard;

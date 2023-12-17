@@ -1,4 +1,5 @@
-function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
+function RadioSwitch({ ticket, amount, setAmount, ticketIndex, setChecked }) {
+  /* AI anvendt til at lave toggleVipStatus funktion */
   const toggleVipStatus = (newVipStatus) => {
     const updatedAmount = amount.map((item, index) => {
       if (index === ticketIndex) {
@@ -16,7 +17,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
         <div className="flex border-2 rounded-md border-yellowaccent">
           <div className="flex items-center">
             <input
-              defaultChecked={checked === "Standard"}
+              defaultChecked={!amount[ticketIndex].vip}
               type="radio"
               name={ticket}
               id={ticket + "standard"}
@@ -35,7 +36,7 @@ function RadioSwitch({ ticket, checked, amount, setAmount, ticketIndex }) {
           </div>
           <div className="flex items-center">
             <input
-              defaultChecked={checked === "VIP"}
+              defaultChecked={amount[ticketIndex].vip}
               type="radio"
               name={ticket}
               id={ticket + "vip"}

@@ -1,9 +1,7 @@
 "use client";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import NumberInput2 from "./NumberInput2";
-import { useState } from "react";
 import Divider from "./Divider";
-import Headline from "./Headline";
 
 function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, setTentThreeAmount, greenChecked, setGreenChecked }) {
   const greenChange = (e) => {
@@ -63,10 +61,7 @@ function CampingPreference({ tentTwoAmount, setTentTwoAmount, tentThreeAmount, s
         </section>
         <Divider />
         <p className="flex justify-end">
-          {
-            299 * tentTwoAmount + 399 * tentThreeAmount + greenValue
-            // 799 * standAmount + 1299 * vipAmount + 99
-          }
+          {299 * tentTwoAmount + 399 * tentThreeAmount + greenValue}
           .00
         </p>
       </div>

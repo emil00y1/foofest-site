@@ -22,8 +22,7 @@ function BuyTickets() {
   const [emailError, setEmailError] = useState("");
   const [reservationId, setReservationId] = useState();
   const [termsError, setTermsError] = useState("");
-  /*   const [people, setPeople] = useState([]);
-   */ const [amount, setAmount] = useState([]);
+  const [amount, setAmount] = useState([]);
 
   const [paymentData, setPaymentData] = useState([
     {
@@ -62,20 +61,18 @@ function BuyTickets() {
     "Content-Type": "application/json",
   };
 
-  /* let data = await response.text();
-console.log(data); */
   let bodyContent = JSON.stringify(ticketData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (pageView === 6) {
+    if (pageView === 5) {
       console.log(reservationId);
       fetch("https://syezauaectamogglkmvc.supabase.co/rest/v1/foofest", {
         method: "POST",
         body: bodyContent,
         headers: headersList,
       });
-      fetch("http://localhost:8080/fullfill-reservation", {
+      fetch("https://stump-impossible-trail.glitch.me/fullfill-reservation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,17 +85,16 @@ console.log(data); */
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          return response.json(); // This returns a promise
+          return response.json();
         })
         .then((data) => {
           console.log(data);
           console.log(reservationId);
-          // Here, 'data' is the actual JSON response
         })
         .catch((err) => console.error(err));
     }
     if (pageView === 3) {
-      fetch("http://localhost:8080/reserve-spot", {
+      fetch("https://stump-impossible-trail.glitch.me/reserve-spot", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -109,13 +105,11 @@ console.log(data); */
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          return response.json(); // This returns a promise
+          return response.json();
         })
         .then((data) => {
           console.log(data.id);
           setReservationId(data.id);
-          console.log("første id", reservationId);
-          // Here, 'data' is the actual JSON response
         })
         .catch((err) => console.error(err));
     }

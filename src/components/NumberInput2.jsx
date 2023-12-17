@@ -1,16 +1,7 @@
-function NumberInput({
-  tentSpace,
-  setTentTwoAmount,
-  tentTwoAmount,
-  setTentThreeAmount,
-  tentThreeAmount,
-  amount,
-  setAmount,
-  label,
-}) {
+function NumberInput({ tentSpace, amount, setAmount, label }) {
   return (
     <>
-      <div className="flex border-2 border-foreground inline p-1.5 rounded-md">
+      <div className="flex border-2 border-foreground p-1.5 rounded-md">
         <button
           disabled={amount === 0}
           onClick={() => {
@@ -37,7 +28,7 @@ function NumberInput({
           type="text"
           readOnly
           value={amount}
-          tabindex="-1"
+          tabIndex="-1"
         />
 
         <button

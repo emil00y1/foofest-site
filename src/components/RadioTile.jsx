@@ -8,10 +8,7 @@ function RadioTile({
   setErrorMsg,
   amount,
   img,
-  reservation,
 }) {
-  const [isAreaChecked, setIsAreaChecked] = useState(false);
-
   const radioChange = (event) => {
     setErrorMsg("");
     setChosenArea(area);
