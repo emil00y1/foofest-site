@@ -49,8 +49,6 @@ function NumberInput({
                 vip: false,
               })
             );
-            /*             setStandAmount((old) => old + 1);
-             */
           }}
         >
           <svg

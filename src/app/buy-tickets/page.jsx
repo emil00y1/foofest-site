@@ -13,8 +13,6 @@ import NextBtn from "@/components/NextBtn";
 
 function BuyTickets() {
   const [pageView, setPageView] = useState(1);
-  const [vipAmount, setVipAmount] = useState(0);
-  const [standAmount, setStandAmount] = useState(0);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [chosenArea, setChosenArea] = useState("");
   const [tentTwoAmount, setTentTwoAmount] = useState(0);
@@ -147,10 +145,6 @@ console.log(data); */
               errorMsg={errorMsg}
               amount={amount}
               setAmount={setAmount}
-              standAmount={standAmount}
-              setStandAmount={setStandAmount}
-              vipAmount={vipAmount}
-              setVipAmount={setVipAmount}
               vipPrice={vipPrice}
               standardPrice={standardPrice}
             />

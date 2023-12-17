@@ -47,6 +47,7 @@ function PersonalInfo({
                       value={ticket.firstname}
                       onChange={handleChange(index)}
                     />
+
                     {ticket.firstname === "" && errorMsg !== "" ? (
                       <p className="text-red-600 flex items-center gap-2 text-sm">
                         <svg
